@@ -6,6 +6,12 @@ body {
     font-family: Montserrat;
 }
 
+.palavras{
+    color: white;
+    text-transform: uppercase;
+    background-color:  #274C6F;
+    text-align: center;
+}
 .menu-principal {
     width: 100%;
     background-color: #252323;
@@ -414,7 +420,7 @@ h5 {
 
 .grupo-botoes {
     padding-left: 162px;
-    width: 50%;
+    width: 50px;
 }
 
 .grupo-botoes img {
@@ -580,13 +586,13 @@ input[type=submit] {
 }
 
 button.cadastrar {
-    margin-right: 5%;
-    margin-left: 11%;
+    margin-right: 3%;
+    margin-left: 5%;
     padding: 0;
     text-align: unset;
     -webkit-appearance: none;
     margin-bottom: 0;
-    width: 272px;
+    width: 250px;
     height: 70px;
     background: #274C6F;
     border-radius: 7px;
@@ -602,7 +608,7 @@ button.cancelar {
     text-align: unset;
     -webkit-appearance: none;
     margin-bottom: 0;
-    width: 272px;
+    width: 250px;
     height: 70px;
     background: #FFFFFF;
     border: 5px solid #77C491;
@@ -778,19 +784,20 @@ button.cancelar {
     display: flex;
     align-items: flex-end;
     padding-left: 17%;
-    margin-bottom: 9%;
+    margin-bottom: 5%;
     box-sizing: border-box;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 26px;
+    
 }
 
 .valor {
     font-style: normal;
     font-weight: bold;
-    font-size: 32px;
-    line-height: 37px;
+    font-size: 20px;
+    line-height: 30px;
     color: #274C6F;
 }
 
@@ -1159,4 +1166,17 @@ button.doar {
 
 #poster-1{
     height: 65%;
+}
+
+.slider-baixo{
+    position: relative;
+    bottom: 30px;
+}
+
+#cad-google{
+    width: 55%;
+}
+
+#fa{
+    width: 55%;
 }
