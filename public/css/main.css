@@ -1,0 +1,1316 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400');
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    font-family: Montserrat;
+}
+
+.palavras{
+    color: white;
+    text-transform: uppercase;
+    background-color:  #274C6F;
+    text-align: center;
+}
+.menu-principal {
+    width: 100%;
+    background-color: #252323;
+    height: 60px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+}
+
+.menu div {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: Montserrat;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    width: 10%;
+    padding-left: 1%;
+}
+
+.logo img {
+    width: 80%;
+}
+
+.busca {
+    width: 30%;
+}
+
+.busca input {
+    background-image: url(../img/lupa.png);
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 100%;
+    padding: 10px;
+    background-position: 96%;
+    border: 1px solid #d6d6d6;
+}
+
+.col-100 {
+    width: 100%;
+    position: relative;
+}
+
+button.slick-prev {
+    font-size: 0px;
+    border: none;
+    width: 27px;
+    height: 53px;
+    z-index: 9;
+    background-color: transparent;
+    position: absolute;
+    background-image: url(../img/arrow\ l.png);
+    top: 50%;
+    left: 14%;
+}
+
+button.slick-next {
+    font-size: 0px;
+    border: none;
+    width: 27px;
+    height: 51px;
+    z-index: 9;
+    background-color: transparent;
+    position: absolute;
+    background-image: url(../img/arrow\ r.png);
+    top: 50%;
+    right: 14%;
+}
+
+.slider-secundario .slick-prev {
+    font-size: 0px;
+    border: none;
+    width: 27px;
+    height: 53px;
+    z-index: 9;
+    background-color: transparent;
+    position: absolute;
+    background-image: url(../img/arrow\ l.png);
+    top: 32%;
+    left: 14%;
+}
+
+.slider-secundario .slick-next {
+    font-size: 0px;
+    border: none;
+    width: 27px;
+    height: 51px;
+    z-index: 9;
+    background-color: transparent;
+    position: absolute;
+    background-image: url(../img/arrow\ r.png);
+    top: 32%;
+    right: 14%;
+}
+
+.slick-list {
+    width: 100%!important;
+}
+
+.slick-initialized {
+    overflow: hidden;
+}
+
+.slick-dots {
+    margin: 0 auto;
+    width: 100%;
+    position: absolute;
+    top: 95%;
+    display: flex;
+    justify-content: center;
+}
+
+.slick-dots li {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.slick-dots li button {
+    font-size: 0px;
+    border: 5px solid #ffffff;
+    width: 26px;
+    height: 26px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+li.slick-active button {
+    background: black;
+}
+
+.texto-destaque {
+    text-align: center;
+}
+
+.texto-destaque strong {
+    color: red;
+}
+
+.texto-destaque h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #818181;
+}
+
+.texto-destaque p {
+    font-size: 15px;
+    color: #9a9a9a;
+}
+
+.col-3 {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 29%;
+    float: left;
+    position: relative;
+}
+
+.bloco-imagem img {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.bloco-imagem {
+    height: 81%;
+    width: 80%;
+    border: 1px solid #c5c5c5;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+}
+
+.bloco-imagem b,
+p {
+    text-align: left;
+}
+
+.bloco-texto {
+    margin-top: 3em;
+}
+
+h3 {
+    font-weight: normal!important;
+}
+
+.bloco-imagens-texto {
+    background-color: #eeeeee;
+}
+
+.content-imagens {
+    margin-left: 5%;
+    float: left;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+}
+
+.slider-secundario {
+    width: 100%;
+    height: 50%;
+}
+
+.grupo-footer {
+    padding: 0% 0% 0%;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    background-color: #252323;
+    height: 25%;
+}
+
+.footer h3 {
+    color: #ffffff;
+    font-size: 19px;
+}
+
+.footer a {
+    color: #cccccc;
+    font-size: 15px;
+}
+
+.mg_top {
+    margin-top: 8%;
+    justify-content: space-between;
+}
+
+.sobre,
+.social,
+.ajuda {
+    width: 30%;
+    display: grid;
+    grid-template-rows: 45px 30px;
+    justify-content: center;
+}
+
+.ajuda h4 {
+    color: #cccccc;
+    font-size: 15px;
+}
+
+h3,
+h4,
+.termos,
+.produtos {
+    text-transform: uppercase;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify {
+    justify-content: center;
+}
+
+h6 {
+    color: #cccccc;
+}
+
+
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+html,
+.body-login {
+    height: 100vh;
+}
+
+.body-login {
+    background-color: #252323;
+    font-family: Montserrat;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15%;
+}
+
+form .input-block {
+    margin-bottom: 20px;
+}
+
+form .input-block label {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+form .input-block input {
+    width: 100%;
+    display: block;
+    margin-top: 8px;
+    padding: 7px;
+    font-size: 1em;
+    color: black;
+    border-radius: 7px;
+    border: 1px solid #ccddef;
+    outline-color: black;
+}
+
+form .btn-login {
+    width: 100%;
+    height: 45px;
+    background: #252323;
+    border: 3px solid #919090;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-size: 1em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-appearance: none;
+}
+
+.cadastro {
+    padding-bottom: 10%;
+    color: #ffffff;
+}
+
+.cadastro a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.logo-login {
+    width: 19%;
+    margin-bottom: 1%;
+}
+
+.link-login {
+    /* display: flex;
+    justify-content: center; */
+    width: 100%;
+}
+
+.branco {
+    width: 100%;
+}
+
+.paizao-cinza {
+    width: 100%;
+    margin-top: 2%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cinza {
+    width: 98%;
+    height: 50px;
+    background: #919090;
+    border-radius: 7px;
+}
+
+.cinza h3 {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: #FFF9F9;
+    margin-top: 1%;
+    margin-left: 6%;
+}
+
+h5 {
+    margin: 0;
+    color: #000000;
+    font-size: 15px;
+    padding-left: 8%;
+    margin-bottom: 2%;
+    text-transform: uppercase;
+}
+
+.grupo-botoes {
+    padding-left: 162px;
+    width: 50px;
+}
+
+.grupo-botoes img {
+    width: 80%;
+}
+
+button {
+    padding: 0;
+    text-align: unset;
+    -webkit-appearance: media-slider;
+    margin-bottom: 20%;
+}
+
+.info,
+.contato,
+.endereco,
+.acesso {
+    margin: 0;
+    color: #262626;
+    padding-left: 11%;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.titulo {
+    text-transform: uppercase;
+    border-bottom: 1px solid #D2CDCD;
+    padding-bottom: 1%;
+    width: 80%;
+}
+
+.formulario {
+    width: 100%;
+}
+
+.field {
+    width: 100%;
+    margin: 15px;
+}
+
+.field label,
+.field span,
+.field-enderoco1,
+.field-enderoco2,
+.field-enderoco3 {
+    color: #000000;
+    padding-bottom: 1%;
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.radiobox label {
+    width: auto;
+    display: inline-block;
+}
+
+input[type=text],
+input[type=email],
+input[type=date],
+input[type=number],
+input[type=tel],
+input[type=password],
+textarea {
+    width: 100%;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #B4B4B4;
+    box-sizing: border-box;
+}
+
+input#nao {
+    margin-left: 30px;
+}
+
+textarea {
+    line-height: 20px;
+    padding: 10px;
+    height: 90px;
+    resize: none;
+}
+
+input[type=submit] {
+    display: block;
+    background-color: #ccc;
+    height: 35px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.nome-completo,
+.sexo-idade,
+.telefone,
+.dado-endereco,
+.cpf,
+.acesso-email,
+.acesso-senha {
+    width: 50%;
+    margin-left: 10%;
+}
+
+.cpf input {
+    width: 45%;
+    margin-bottom: 10%;
+}
+
+.telefone input {
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.field-enderoco1 {
+    width: 46%;
+    margin: 15px;
+}
+
+.field-enderoco2 {
+    width: 10%;
+    margin: 15px;
+}
+
+.field-enderoco3 {
+    width: 31%;
+    margin: 15px;
+}
+
+.field-termo {
+    width: 31%;
+    margin: 15px;
+}
+
+.field-termo label {
+    color: #000000;
+    padding-bottom: 1%;
+    display: contents;
+    width: 100%;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.notificacoes {
+    margin: 0;
+    color: #262626;
+    padding-left: 10%;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-bottom: 5%;
+}
+
+button.cadastrar {
+    margin-right: 3%;
+    margin-left: 5%;
+    padding: 0;
+    text-align: unset;
+    -webkit-appearance: none;
+    margin-bottom: 0;
+    width: 250px;
+    height: 70px;
+    background: #274C6F;
+    border-radius: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+button.cancelar {
+    padding: 0;
+    text-align: unset;
+    -webkit-appearance: none;
+    margin-bottom: 0;
+    width: 250px;
+    height: 70px;
+    background: #FFFFFF;
+    border: 5px solid #77C491;
+    box-sizing: border-box;
+    border-radius: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 28px;
+    color: #5B5757;
+}
+
+.cad-canc {
+    margin-bottom: 2%;
+}
+
+.azul {
+    width: 100%;
+    height: 10%;
+    background-color: #274C6F;
+    margin-bottom: 6%;
+}
+
+.azul h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: #FFFFFF;
+    font-size: 38px;
+    line-height: 45px;
+    text-align: center;
+    padding-top: 1%;
+    text-transform: uppercase;
+}
+
+.card {
+    /* text-align: center; */
+    font-family: Montserrat;
+}
+
+.card button {
+    background: #274C6F;
+    border-radius: 7px;
+    width: 173px;
+    height: 30px;
+    color: #ffffff;
+}
+
+.detalhes {
+    height: 32%;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.detalhes p {
+    margin-left: 19%;
+    text-align: center;
+}
+
+.img-banner {
+    width: 100%;
+}
+
+.noti-quad {
+    background-color: #F2F2F2;
+}
+
+.campos-preencher {
+    padding-left: 7%;
+    margin-bottom: 1%;
+}
+
+.tipo-cadastro {
+    background-color: #EFEFEF;
+    width: 80%;
+    height: 18%;
+    margin-left: 7%;
+    margin-bottom: 1%;
+}
+
+.tiposdecadastro {
+    text-transform: uppercase;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    width: 80%;
+    font-size: 22px;
+    margin-left: 3%;
+    color: #262626;
+}
+
+.comprar-vender {
+    font-size: 13px;
+    color: #000000;
+    padding-left: 5%;
+    padding-top: 1%;
+}
+
+.interessado {
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    padding-left: 5%;
+    font-weight: 600;
+}
+
+.vender {
+    padding-left: 6%;
+}
+
+.espaco-branco {
+    width: 100%;
+    height: 16%;
+}
+
+.traco {
+    width: 80%;
+    height: 53%;
+    border-bottom: 1px solid #D2CDCD;
+    margin-left: 10%;
+}
+
+.obras-home {
+    display: grid;
+    grid-template-columns: repeat(3, 24%);
+    justify-content: center;
+    grid-gap: 2%;
+}
+
+.produtos-venda {
+    width: 100%;
+}
+
+.obras-venda {
+    display: grid;
+    grid-template-columns: repeat(3, 24%);
+    justify-content: center;
+    grid-column-gap: 5%;
+    grid-row-gap: 2%;
+    grid-template-rows: repeat(auto-fit, 34%);
+    margin-top: 2%;
+    margin-bottom: 6%;
+}
+
+.obras-venda .card {
+    text-align: unset;
+    font-family: Montserrat;
+    background: #FFFFFF;
+    border: 1px solid #2b2929;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin-bottom: 5%;
+    height: 97%
+}
+
+.obras-venda img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    width: 100%;
+}
+
+.obras-venda span {
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.autor {
+    background-image: url(../img/autor.png);
+    background-repeat: no-repeat;
+    z-index: 9;
+    width: auto;
+    height: 27px;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 17%;
+    margin-bottom: 5%;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 26px;
+    
+}
+
+.valor {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #274C6F;
+}
+
+.titulo-obra {
+    margin-bottom: 10%;
+}
+
+.detalhes p {
+    color: #274C6F;
+    ;
+}
+
+button.carrinho-obra {
+    background: none;
+    background-image: url(../img/market.png);
+    background-repeat: no-repeat;
+    background-position: 20%;
+    z-index: 9;
+    margin: 0;
+    height: 53px;
+}
+
+.grupo_info_obra {
+    width: 70%;
+    padding: 4%;
+    border-right: 1px solid #ccc;
+}
+
+.carrinho-pai {
+    width: 30%;
+    padding: 4%;
+}
+
+.home-detalhes button {
+    text-align: center;
+}
+
+.texto-termo {
+    margin-left: 5%;
+    margin-bottom: 11%;
+}
+
+.texto-termo h1 {
+    padding-top: 5%;
+}
+
+.trocar-pagina {
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+.todas-paginas {
+    width: 60%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginas {
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    width: 5%;
+    height: 50;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.paginas-seta {
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    width: 5%;
+    height: 50;
+    background: #274C6F;
+    border: 2px solid #315A81;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+button.seta-l {
+    margin: 0;
+    width: 19px;
+    height: 26px;
+    z-index: 9;
+    background-color: transparent;
+    position: absolute;
+    background-image: url(../img/setal.png);
+    background-repeat: no-repeat;
+}
+
+button.seta-r {
+    margin: 0;
+    width: 19px;
+    height: 26px;
+    z-index: 9;
+    background-color: transparent;
+    position: absolute;
+    background-image: url(../img/setar.png);
+    background-repeat: no-repeat;
+}
+
+
+/* perfil-artista */
+
+.imagem-fundo-pai {
+    width: 100%;
+}
+
+.imagem-fundo {
+    width: 100%;
+    height: 300px;
+}
+
+.imagem-fundo img {
+    width: 100%;
+    height: 100%;
+}
+
+button.seguir {
+    background: #274C6F;
+    border-radius: 5px;
+    margin: 0;
+    width: 7%;
+    height: 36px;
+    position: absolute;
+    left: 89%;
+    top: 41%;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+button.doar {
+    background: #3D7A52;
+    border-radius: 5px;
+    margin: 0;
+    width: 7%;
+    height: 36px;
+    position: absolute;
+    left: 81%;
+    top: 41%;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+.nome-artista {
+    background: rgba(37, 35, 35, 0.69);
+    border-radius: 5px;
+    margin: 0;
+    width: 20%;
+    height: 53px;
+    position: absolute;
+    left: 32%;
+    top: 38%;
+    color: #FFFFFF;
+    font-size: 29px;
+    font-weight: bold;
+    padding-top: 7px;
+    padding-left: 2%;
+    box-sizing: border-box;
+}
+
+.conteudo-pai {
+    width: 100%;
+    background: #E5E5E5;
+}
+
+.imagem-artista img {
+    position: absolute;
+    left: 3%;
+    top: 23%;
+}
+
+.conteudo-perfil {
+    width: 60%;
+    height: 15%;
+    margin-left: 35%;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 8px;
+    position: absolute;
+    top: 52%;
+    font-size: 20px
+}
+
+.categorias-perfil {
+    position: absolute;
+    background: #ECECEC;
+    width: 27%;
+    height: 79px;
+    border-radius: 5px 5px 0px 0px;
+    left: 4%;
+    top: 81%;
+}
+
+.catergoria-p {
+    display: flex;
+    width: 70%;
+    height: 60px;
+    color: #5B5757;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria-ptotal {
+    width: 30%;
+    height: 60px;
+    display: flex;
+    color: #000000;
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.destaque {
+    text-transform: uppercase;
+    border-bottom: 2px solid #D2CDCD;
+    padding-bottom: 1%;
+    width: 53%;
+    position: absolute;
+    bottom: 15%;
+    left: 38%;
+}
+
+.produtos-perfil {
+    width: 100%;
+    overflow: hidden;
+    margin-left: 4%;
+}
+
+.prod-qtd {
+    position: absolute;
+    top: 90%;
+    width: 27%;
+}
+
+.prod {
+    display: flex;
+    width: 70%;
+    height: 60px;
+    color: #5B5757;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.qtd {
+    width: 30%;
+    height: 60px;
+    display: flex;
+    color: #000000;
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.prod-qtds {
+    left: 4%;
+    position: absolute;
+    width: 27%;
+    top: 96%;
+}
+
+.todos-quadros {
+    width: 60%;
+    margin-left: 35%;
+    margin-top: 21%;
+}
+
+.todas-obras {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 27%);
+    grid-column-gap: 3%;
+    margin-left: 5%;
+}
+
+.grupo_info_obras {
+    border-right: none;
+    width: 100%;
+}
+
+.card-obras img {
+    width: 100%;
+}
+
+.titulo-obras {
+    margin-bottom: 10%;
+    margin-left: 10%;
+    width: 80%;
+}
+
+#titulo-caneca{
+    margin-left: 10%;
+    text-transform: uppercase;
+}
+
+#titulo-bolsa{
+    margin-left: 10%;
+    text-transform: uppercase;
+}
+
+#bolsa-7{
+    height: 65%;
+}
+
+#titulo-almofada{
+    margin-left: 10%;
+    text-transform: uppercase;
+}
+
+#almofada-5{
+    height: 65%;
+}
+#almofada-9{
+    height: 65%;
+}
+
+#titulo-caderno{
+    margin-left: 10%;
+    text-transform: uppercase;
+}
+
+#caderno-5{
+    height: 67%;
+}
+
+#caderno-7{
+    height: 65%;
+}
+
+#caderno-8{
+    height: 65%;
+}
+
+
+#titulo-camisetas{
+    margin-left: 10%;
+    text-transform: uppercase;
+}
+
+#camisa-1{
+    height: 65%;
+}
+
+#camisa-4{
+    height: 68%;
+}
+
+#camisa-2{
+    height: 66%;
+}
+
+#camisa-9{
+    height: 66%;
+}
+
+#poster-1{
+    height: 65%;
+}
+
+.slider-baixo{
+    position: relative;
+    bottom: 30px;
+}
+
+#cad-google{
+    width: 55%;
+}
+
+#fa{
+    width: 55%;
+}
+
+#capa-perfil{
+    background-image: url(../img/carrossel1\ \(1\).png);
+    height: 40%;
+}
+
+@media(max-width:640px){
+    #capa-perfil{
+        height: 22%;
+    }
+}
+
+.i{
+    position: relative;
+    bottom: 105px;
+   
+}
+
+@media(max-width:640px){
+    .i{
+        width: 30%;
+        position: relative;
+        bottom: 115px;
+       
+        
+    }
+}
+
+#descricaou{
+    border: solid 5px black;
+    padding: 1px;
+    height: 10%;
+    margin-left: 9%;
+    margin-top: 2%;
+}
+
+@media(max-width:640px){
+
+    #descricaou{
+        border: solid 2px black;
+        height: 35%;
+        padding: 1px;
+        position: absolute;
+        text-align: center;
+        
+    }
+    
+}
+
+#tema-per{
+    position: relative;
+    bottom: 50px;
+}
+
+@media(max-width:640px){
+
+    #tema-per{
+        position: absolute;
+        bottom: 20%;
+        
+        
+    }
+    
+}
+
+#pr{
+    position: relative;
+    top: 50px;
+}
+
+#prt{
+    position: relative;
+    top: 50px;
+    left: 10px;
+}
+
+#prtb{
+    position: relative;
+    top: 50px;
+    left: 20px;
+}
+
+
+
+@media(max-width:640px){
+
+   
+#pr{
+    position: relative;
+    top: 300px;
+    left: 7px;
+}
+
+#prt{
+    position: relative;
+    top: 300px;
+    left: 10px;
+}
+
+#prtb{
+    position: relative;
+    top: 109px;
+    left: 20px;
+}
+
+.valor{
+    width: 2%;
+}
+
+
+}
+
+#foor{
+    position: relative;
+    top: 80px;
+}
+
+#n{
+    position: relative;
+    top: 40px;
+}
+
+
+@media(max-width:640px){
+
+    #n{
+        position: relative;
+        top: 90px;
+        align-items: center;
+        right: 20px;
+    }
+    
+    
+}
