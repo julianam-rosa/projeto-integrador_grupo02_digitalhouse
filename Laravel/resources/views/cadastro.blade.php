@@ -1,30 +1,21 @@
+@extends('layout')
 
-<html>
-
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
-    <title>Veduta</title>
-    <link rel="icon" href="./img/logo_veduta-sem-letras.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
+@section('conteudo')
 
 <body>
-    
-
 
     <div class="branco">
         <div class="paizao-cinza">
             <div class="cinza">
-                <h3>cadastre-se</h3>
+                <h3>Cadastre-se</h3>
             </div>
         </div>
         <div class="campos-preencher"> PREENCHER TODOS OS CAMPOS COM (*), POIS SÃO OBRIGATÓRIOS.</div>
-        
+
         </div>
         <h5>Você pode se cadastrar usando informações de sua contas de redes socias, email ou preencher os campos abaixo:</h5>
-        
-            
+
+
         <div class="">
             <div class="botao-face">
                 <button class="btn"><img id="fa" src="./img/Botão Facebook.png"></button>
@@ -33,8 +24,8 @@
                 <button class="btn"><img id="cad-google" src="./img/Botão Gmail.png"></button>
             </div>
         </div>
-            
-        
+
+
         <div class="info">
             <h4 class="titulo">Informações Pessoais</h4>
         </div>
@@ -169,48 +160,4 @@
     </form>
     </div>
 
-    <footer>
-        <div class="footer">
-            <div class="flex grupo-footer">
-                <div class="sobre">
-                    <h3>Sobre Nós</h3>
-                    
-                    <div class="termos">
-                        <h4><a href="termos-privacidades.html">Termos e privacidade</a></h4>
-                    </div>
-                </div>
-                <div class="social">
-                    <h3>Redes Sociais</h3>
-                    <div class="flex mg_top">
-                        <div class="face">
-                            <a href="https://www.facebook.com/"> <img id="facebook" src="./img/facebook.png"></a>
-                        </div>
-                        <div class="twitter">
-                            <a href="https://twitter.com/login?lang=pt"><img id="twitter" src="./img/twitter.png"></a>
-                        </div>
-                        <div class="insta">
-                            <a href="https://www.instagram.com/?hl=pt-br"><img id="insta" src="./img/instagram.png"></a>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="ajuda">
-                    <h3>Ajuda</h3>
-                    <h4><a href="">Trocas e Devoluções</a></h4>
-                    
-                </div>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</html>
-
-
-
+    @endsection

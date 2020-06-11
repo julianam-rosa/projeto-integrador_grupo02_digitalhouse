@@ -8,7 +8,7 @@
 
 <body class="body-login">
     <section class="form-section">
-        <a href="home.html" class="link-login flex justify"><img src="./img/logo_colorido.png" alt="logo" class="logo-login"></a>
+        <a href="/home" class="link-login flex justify"><img src="./img/logo_colorido.png" alt="logo" class="logo-login"></a>
 
         <div class="form-wrapper">
             <form action="">
