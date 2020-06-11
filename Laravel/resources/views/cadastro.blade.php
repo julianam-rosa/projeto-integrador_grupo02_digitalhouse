@@ -29,11 +29,15 @@
         <div class="info">
             <h4 class="titulo">Informações Pessoais</h4>
         </div>
+
+    <div class="container">   
         <form class="formulario" method="post">
+
+        
             <div class="flex nome-completo">
                 <div class="field">
                     <label for="nome"> Nome(*)</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    <input type="text"  id="nome" name="nome" placeholder="Digite seu nome" required>
                 </div>
 
                 <div class="field">
@@ -41,6 +45,8 @@
                     <input type="text" id="Sobrenome" name="Sobrenome" placeholder="Digite seu sobrenome" required>
                 </div>
             </div>
+
+        
             <div class="flex sexo-idade">
                 <div class="field radiobox">
                     <span>sexo(*)</span>
@@ -158,6 +164,9 @@
             <a href="home.html"><button type="submit" class="cancelar">cancelar</button></a>
         </div>
     </form>
+
+    </div>
+
     </div>
 
     @endsection
