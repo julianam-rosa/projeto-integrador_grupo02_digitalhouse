@@ -37,17 +37,14 @@ Route::get('/termosprivacidade', function() {
     return view('termosPrivacidade');
 })->name('termos');
 
-Route::get('/categorias/almofadas', function() {
-    return view('categorias/almofadas');
-})->name('categoria-almofadas');
+Route::get('/categorias/almofadas', 'almofadasController@listarAlmofadas')
+->name('categoria-almofadas');
 
-Route::get('/categorias/bolsas', function() {
-    return view('categorias/bolsas');
-})->name('categoria-bolsas');
+Route::get('/categorias/bolsas', 'bolsasController@listarBolsas')
+->name('categoria-bolsas');
 
-Route::get('/categorias/cadernos', function() {
-    return view('categorias/cadernos');
-})->name('categoria-cadernos');
+Route::get('/categorias/cadernos', 'cadernosController@listarCadernos')
+->name('categoria-cadernos');
 
 Route::get('/categorias/camisetas', function() {
     return view('categorias/camisetas');
@@ -81,6 +78,5 @@ Route::get('/categorias/meias', function() {
     return view('categorias/meias');
 })->name('categoria-meias');
 
-Route::get('/categorias/posters', function() {
-    return view('categorias/posters');
-})->name('categoria-posters');
+Route::get('/categorias/posters', 'postersController@listarPosters')
+->name('categoria-posters');

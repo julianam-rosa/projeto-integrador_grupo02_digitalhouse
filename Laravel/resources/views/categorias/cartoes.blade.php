@@ -6,7 +6,7 @@
 
   <div class="espaco-branco">
     <div class="traco"></div>
-    <h2 id="titulo-almofada">Cartões Postais</h2>
+    <h2 id="titulo-categorias">Cartões Postais</h2>
   </div>
 
   <main class="produtos-venda">
@@ -102,21 +102,8 @@
           </div>
         </div>
 
-        <br><br>
 
-      <div class="flex trocar-pagina">
-        <div class="flex todas-paginas">
-          <div class="flex paginas-seta"><button class="seta-l"></button></div>
-          <div class="flex paginas">1</div>
-          <div class="flex paginas">2</div>
-          <div class="flex paginas">3</div>
-          <div class="flex paginas">4</div>
-          <div class="flex paginas">5</div>
-          <div class="flex paginas-seta"><button class="seta-r"></button></div>
-        </div>
       </div>
-
-    </div>
   </main>
 
 </div>
