@@ -16,8 +16,8 @@ class Telephones extends Migration
         Schema::create('telephones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_users');
-            $table->integer('tel1');
-            $table->integer('tel2');
+            $table->bigInteger('tel1');
+            $table->bigInteger('tel2')->nullable();
             $table->timestamps();
         });
     }

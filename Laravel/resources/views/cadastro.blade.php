@@ -36,7 +36,7 @@
 
     <div class="container">   
         <form class="formulario" method="post">
-
+        @csrf
         
             <div class="flex nome-completo">
                 <div class="field">
@@ -54,11 +54,9 @@
             <div class="flex sexo-idade">
                 <div class="field radiobox">
                     <span>sexo(*)</span>
-                    <form>
                         <input type="radio" name="sex" value="male"> Masculino
                         <input type="radio" name="sex" value="female"> Feminino
                         <input type="radio" name="sex" value="outros"> Outros
-                    </form>
                 </div>
                 <div class="field">
                     <label for="nascimento">data de Nascimento(*)</label>

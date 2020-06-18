@@ -38,14 +38,20 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $usuario = new User();
-        $usuario->name = $request["name"];
+        $usuario->name = $request["nome"];
         $usuario->surname = $request["sobrenome"];
         $usuario->email = $request["email"];
         $usuario->sex = $request["sex"];
         $usuario->password = $request["senha"];
         $usuario->birthdate = $request["dataNascimento"];
         $usuario->cpf = $request["cpf"];
-        $usuario->newsletter = $request["newsletter"];
+
+        if($request["newsletter"] == 'on') {
+        $usuario->newsletter = true; }
+        else {
+        $usuario->newsletter = false;
+        }
+        
         $usuario->save();
 
         $endereco = new ShippingAddress();

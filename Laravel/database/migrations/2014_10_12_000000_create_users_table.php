@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('sex');
             $table->date('birthdate');
-            $table->integer('cpf');
+            $table->bigInteger('cpf');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -21,8 +21,8 @@ class ShippingAddresses extends Migration
             $table->string('neighborhood');
             $table->string('street');
             $table->integer('number');
-            $table->string('complement');
-            $table->integer('postalCode');
+            $table->string('complement')->nullable();
+            $table->bigInteger('postalCode');
             $table->timestamps();
         });
     }
