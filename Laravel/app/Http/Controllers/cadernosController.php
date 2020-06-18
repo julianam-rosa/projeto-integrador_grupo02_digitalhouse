@@ -7,7 +7,6 @@ use App\bolsasModel;
 
 class cadernosController extends Controller
 {
-    //
         public function listarCadernos(){
         $cadernos = [];
         return view('categorias/cadernos', ["cadernos" => $cadernos]);

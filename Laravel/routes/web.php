@@ -25,6 +25,8 @@ Route::get('/cadastro', function() {
     return view('cadastro');
 });
 
+Route::post('/cadastro', 'UsersController@store');
+
 Route::get('/home', function() {
     return view('home');
 });

@@ -63,20 +63,6 @@
   </div>
 </div>
 
-<br><br>
-
-<div id="n" class="flex trocar-pagina">
-  <div class="flex todas-paginas">
-    <div class="flex paginas-seta"><button class="seta-l"></button></div>
-    <div class="flex paginas">1</div>
-    <div class="flex paginas">2</div>
-    <div class="flex paginas">3</div>
-    <div class="flex paginas">4</div>
-    <div class="flex paginas">5</div>
-    <div class="flex paginas-seta"><button class="seta-r"></button></div>
-  </div>
-</div>
-
 <br><br><br>
 
 @endsection
