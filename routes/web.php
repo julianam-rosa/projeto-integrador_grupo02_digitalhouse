@@ -40,3 +40,27 @@ Route::get('/perfil', function() {
 Route::get('/cat-case', function() {
     return view('categoria-case');
 });
+
+Route::get('/cat-chinelo', function() {
+    return view('categoria-chinelo');
+});
+
+Route::get('/cat-leggins', function() {
+    return view('categoria-leggins');
+});
+
+Route::get('/cat-magnetos', function() {
+    return view('categoria-magnetos');
+});
+
+Route::get('/cat-meias', function() {
+    return view('categoria-meias');
+});
+
+Route::get('/prod-det', function() {
+    return view('produtodetalhado');
+});
+
+Route::get('/finalizarcompra', function() {
+    return view('finalizarcompra');
+});
