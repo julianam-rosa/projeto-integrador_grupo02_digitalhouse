@@ -15,7 +15,7 @@ class ShippingAddresses extends Migration
     {
         Schema::create('shipping_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_users');
+            $table->unsignedBigInteger('id_users');
             $table->string('state');
             $table->string('city');
             $table->string('neighborhood');
@@ -24,6 +24,8 @@ class ShippingAddresses extends Migration
             $table->string('complement')->nullable();
             $table->bigInteger('postalCode');
             $table->timestamps();
+
+            $table->foreign('id_users')->references('id')->on('users');
         });
     }
 

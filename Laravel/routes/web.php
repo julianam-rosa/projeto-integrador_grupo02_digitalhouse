@@ -74,3 +74,11 @@ Route::get('/categorias/meias', 'CategoryController@listarMeias')
 
 Route::get('/categorias/posters', 'CategoryController@listarPosters')
 ->name('categoria-posters');
+
+Route::get('/prod-det', function() {
+    return view('produtodetalhado');
+});
+
+Route::get('/finalizarcompra', function() {
+    return view('finalizarcompra');
+});
