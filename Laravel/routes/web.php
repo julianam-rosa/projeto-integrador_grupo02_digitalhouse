@@ -21,9 +21,8 @@ Route::get('/login', function() {
     return view('login');
 });
 
-Route::get('/cadastro', function() {
-    return view('cadastro');
-});
+Route::get('/cadastro', 'UsersController@create')
+->name('pagina_cadastro');
 
 Route::post('/cadastro', 'UsersController@store');
 

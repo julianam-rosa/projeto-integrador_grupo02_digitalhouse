@@ -3,9 +3,19 @@
 @section('conteudo')
 
 @if(!empty($mensagem))
-<div class="alert alert-success">
+<div class="alert alert-success mt-2">
     {{ $mensagem }}
 </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger mt-2">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
     <div class="branco">
@@ -29,12 +39,11 @@
             </div>
         </div>
 
-
         <div class="info">
             <h4 class="titulo">Informações Pessoais</h4>
         </div>
 
-    <div class="container">   
+    <div class="container d-flex">   
         <form class="formulario" method="post">
         @csrf
         
@@ -120,7 +129,7 @@
                 </div>
                 <div class="field-enderoco3">
                     <label for="complemento">complemento</label>
-                    <input type="text" id="complemento" name="complemento" placeholder="Complemento" required>
+                    <input type="text" id="complemento" name="complemento" placeholder="Complemento">
                 </div>
             </div>
             <div class="acesso">
@@ -133,8 +142,8 @@
                 </div>
 
                 <div class="field">
-                    <label for="email-confirme">confirme o e-mail(*)</label>
-                    <input type="email" id="email-confirme" name="email-confirme" placeholder="Confirme seu email" required>
+                    <label for="email_confirmation">confirme o e-mail(*)</label>
+                    <input type="email" id="email_confirmation" name="email_confirmation" placeholder="Confirme seu email" required>
                 </div>
             </div>
             <div class="flex acesso-senha">
@@ -144,8 +153,8 @@
                 </div>
 
                 <div class="field">
-                    <label for="senha-confirme">Confirme a senha(*)</label>
-                    <input type="password" id="senha-confirme" name="senha-confirme" placeholder="Confirme sua senha" required>
+                    <label for="senha_confirmation">Confirme a senha(*)</label>
+                    <input type="password" id="senha_confirmation" name="senha_confirmation" placeholder="Confirme sua senha" required>
                 </div>
             </div>
             <div class="notificacoes">
@@ -153,22 +162,20 @@
                     <div class="field-termo">
                         <input type="checkbox" id="termos" name="termos" required>
                         <label for="scales">LI E ACEITO OS TERMOS E CONDIÇÕES</label required>
-                </div>
+                    </div>
 
-                <div class="field-termo">
-                    <input type="checkbox" id="newsletter" name="newsletter">
-                    <label for="horns">ACEITO RECEBER NOTIFICAÇÕES DE PROMOÇÃO EM MEU E-MAIL</label >
+                    <div class="field-termo">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="horns">ACEITO RECEBER NOTIFICAÇÕES DE PROMOÇÃO EM MEU E-MAIL</label >
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="flex cad-canc">
-            <button type="submit" class="cadastrar">cadastrar</button>
-        </div>
-    </form>
-
-    <a href="home.html"><button class="cancelar">cancelar</button></a>
-
-    </div>
+            
+            <div class="flex cad-canc">
+                <button type="submit" class="cadastrar">cadastrar</button>
+                <button type="reset" class="cancelar">cancelar</button>
+            </div>
+        </form>
 
     </div>
 
