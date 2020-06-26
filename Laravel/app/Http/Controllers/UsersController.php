@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ShippingAddress;
-use App\Telephone;
-use App\User;
+use App\{User, Telephone, ShippingAddress};
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\{Hash, Validator, DB};
 use App\Providers\RouteServiceProvider;
 
 class UsersController extends Controller
@@ -76,6 +73,8 @@ class UsersController extends Controller
             ]
         );
 
+        DB::beginTransaction();
+
         $usuario = new User();
         $usuario->name = $request["nome"];
         $usuario->surname = $request["sobrenome"];
@@ -91,18 +90,24 @@ class UsersController extends Controller
         $usuario->newsletter = false;
         }
 
-        $usuario->shippingAddresses()->state = $request["estado"];
-        $usuario->shippingAddresses()->city = $request["cidade"];
-        $usuario->shippingAddresses()->neighborhood = $request["bairro"];
-        $usuario->shippingAddresses()->street = $request["rua"];
-        $usuario->shippingAddresses()->number = $request["numero"];
-        $usuario->shippingAddresses()->complement = $request["complemento"];
-        $usuario->shippingAddresses()->postalCode = $request["cep"];
-
-        $usuario->telephones()->tel1 = $request["celular"];
-        $usuario->telephones()->tel2 = $request["telefone"];
+        $usuario->save();
         
-        $usuario->push();
+        $usuario->shippingAddresses()->create([
+            'state' => $request["estado"],
+            'city' => $request["cidade"],
+            'neighborhood' => $request["bairro"],
+            'street' => $request["rua"],
+            'number' => $request["numero"],
+            'complement' => $request["complemento"],
+            'postalCode' => $request["cep"]
+        ]);
+        
+        $usuario->telephones()->create([
+            'tel1' => $request["celular"],
+            'tel2' => $request["telefone"]
+        ]);
+
+        DB::commit();
 
         $request->session()->flash('mensagem',
         "Usuário cadastrado com sucesso.");
