@@ -81,3 +81,7 @@ Route::get('/prod-det', function() {
 Route::get('/finalizarcompra', function() {
     return view('finalizarcompra');
 });
+
+Route::get('/cadastrarProduto', function() {
+    return view('cadastroProduto');
+});
