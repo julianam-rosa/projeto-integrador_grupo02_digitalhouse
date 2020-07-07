@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ShippingAddress;
-use App\Telephone;
-use App\User;
+use App\{User, Telephone, ShippingAddress};
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\{Hash, Validator, DB};
+use App\Providers\RouteServiceProvider;
 
 class UsersController extends Controller
 {
@@ -24,9 +25,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('cadastro', compact('mensagem'));
     }
 
     /**
@@ -37,36 +40,79 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,
+            [
+                'nome' => 'required|max:255',
+                'sobrenome' => 'required|max:255',
+                'email' => 'required|string|email|max:255|unique:users|confirmed',
+                'sex' => 'required',
+                'senha' => 'required|string|min:8|confirmed',
+                'dataNascimento' => 'required|date',
+                'cpf' => 'required|unique:users|size:11',
+                'estado' => 'required|string',
+                'cidade' => 'required|string',
+                'bairro' => 'required|string',
+                'rua' => 'required|string',
+                'numero' => 'required|integer',
+                'cep' => 'required|size:8',
+                'celular' => 'required|size:11',
+                'telefone' => 'size:10',
+                'termos' => 'different:off'
+            ],
+            [
+                'required' => 'O campo :attribute é necessário.',
+                'max' => 'O campo :attribute deve ter no máximo :max caracteres.',
+                'unique' => ':attribute já cadastrado.',
+                'email' => 'Email inválido.',
+                'min' => 'O campo :attribute deve ter no mínimo :min caracteres.',
+                'confirmed' => 'O campo :attribute deve ser confirmado.',
+                'date' => 'Data inválida.',
+                'size' => 'O campo :attribute deve ter :size caracteres.',
+                'integer' => 'Campo "Número" inválido.',
+                'different' => 'Você deve aceitar nossos Termos e Condições para efetuar o cadastro.'
+            ]
+        );
+
+        DB::beginTransaction();
+
         $usuario = new User();
-        $usuario->name = $request["name"];
+        $usuario->name = $request["nome"];
         $usuario->surname = $request["sobrenome"];
         $usuario->email = $request["email"];
         $usuario->sex = $request["sex"];
-        $usuario->password = $request["senha"];
+        $usuario->password = Hash::make($request["senha"]);
         $usuario->birthdate = $request["dataNascimento"];
         $usuario->cpf = $request["cpf"];
-        $usuario->newsletter = $request["newsletter"];
+
+        if($request["newsletter"] == 'on') {
+        $usuario->newsletter = true; }
+        else {
+        $usuario->newsletter = false;
+        }
+
         $usuario->save();
+        
+        $usuario->shippingAddresses()->create([
+            'state' => $request["estado"],
+            'city' => $request["cidade"],
+            'neighborhood' => $request["bairro"],
+            'street' => $request["rua"],
+            'number' => $request["numero"],
+            'complement' => $request["complemento"],
+            'postalCode' => $request["cep"]
+        ]);
+        
+        $usuario->telephones()->create([
+            'tel1' => $request["celular"],
+            'tel2' => $request["telefone"]
+        ]);
 
-        $endereco = new ShippingAddress();
-        $endereco->state = $request["estado"];
-        $endereco->city = $request["cidade"];
-        $endereco->neighborhood = $request["bairro"];
-        $endereco->street = $request["rua"];
-        $endereco->number = $request["numero"];
-        $endereco->complement = $request["complemento"];
-        $endereco->postalCode = $request["cep"];
-        $endereco->save();
-
-        $telefone = new Telephone();
-        $telefone->tel1 = $request["celular"];
-        $telefone->tel2 = $request["telefone"];
-        $telefone->save();
+        DB::commit();
 
         $request->session()->flash('mensagem',
         "Usuário cadastrado com sucesso.");
 
-        return view('cadastro', compact('mensagem'));
+        return redirect()->route('pagina_cadastro');
     }
 
     /**

@@ -21,8 +21,40 @@ class CategoryController extends Controller
         return view('categorias/cadernos', ["cadernos" => $cadernos]);
         }
 
+    public function listarCamisetas(){
+        return view('categorias/camisetas');
+        }
+
+    public function listarCanecas(){
+        return view('categorias/canecas');
+        }
+
+    public function listarCartoes(){
+        return view('categorias/cartoes');
+        }
+
+    public function listarCases(){
+        return view('categorias/cases');
+        }
+
+    public function listarChinelos(){
+        return view('categorias/chinelos');
+    }
+
+    public function listarLeggins(){
+        return view('categorias/leggins');
+        }
+
+    public function listarMagnetos(){
+        return view('categorias/magnetos');
+        }
+    
+    public function listarMeias(){
+        return view('categorias/meias');
+        }
+
     public function listarPosters(){
         $posters = [];
         return view('categorias/posters', ["posters" => $posters]);
-        }
+    }
 }

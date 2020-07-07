@@ -24,44 +24,29 @@
 <!-- descrição -->
 
     <div id="descricaou" class="col-7 rounded">
-      <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi molestiae sapiente architecto pariatur dicta voluptates atque adipisci doloremque accusamus quisquam, modi nam, accusantium veritatis delectus nisi aliquam dolorum dolore ullam.
-      </p>
+ 
   </div>
+
 
     <div>
       <h3 id="tema-per">Produtos</h3>
     </div>
-
+@foreach($produtos as $produto)
     <div id="pr" class="card col-3">
       <a href="perfil-artista.html">
-        <img src="./img/cadernos/caderno-3.jpg" class="card-img-top" alt="...">
+        <img src="{{ asset('uploads/todosProdutos/') . $produto->imagem1 }}" class="card-img-top" alt="..." width="250px">
       </a>
 
       <div class="card-body">
-            <span class="valor"><strong>R$</strong></span><span class="valor">20,99</span>
+            <span class="valor"><strong>R$</strong></span><span class="valor">{{ $produto->preço }}</span>
+         
+            <span>{{ $produto->nome }}</span>
+            <span>{{ $produto->descricao }}</span>
       </div>
     </div>
 
-    <div id="prt" class="card col-3">
-      <a href="perfil-artista.html">
-        <img src="./img/cadernos/caderno-3.jpg" class="card-img-top" alt="...">
-      </a>
+@endforeach
 
-      <div class="card-body">
-        <span class="valor"><strong>R$</strong></span><span class="valor">20,99</span>
-      </div>
-    </div>
-
-    <div id="prtb" class="card col-3">
-      <a href="perfil-artista.html">
-        <img src="./img/cadernos/caderno-3.jpg" class="card-img-top" alt="...">
-      </a>
-
-      <div class="card-body">
-        <span class="valor"><strong>R$</strong></span><span class="valor">20,99</span>
-      </div>
-    </div>
   </div>
 </div>
 

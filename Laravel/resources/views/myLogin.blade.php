@@ -11,14 +11,15 @@
         <a href="/home" class="link-login flex justify"><img src="./img/logo_colorido.png" alt="logo" class="logo-login"></a>
 
         <div class="form-wrapper">
-            <form action="">
+            <form  method="POST" action="/login">
+            @csrf
                 <div class="input-block">
                     <label for="login-email">Email</label>
-                    <input type="email" id="login-email" />
+                    <input type="email" id="login-email" name="email" />
                 </div>
                 <div class="input-block">
                     <label for="login-password">Senha</label>
-                    <input type="password" id="login-password" />
+                    <input type="password" id="login-password" name="password"/>
                 </div>
                 <div>
                     <div class="cadastro">

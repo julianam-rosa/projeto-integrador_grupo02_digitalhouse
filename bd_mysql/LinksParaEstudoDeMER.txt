@@ -1,0 +1,7 @@
+https://medium.com/@johnwadelinatoc/build-an-ecommerce-database-schema-3b5e04b4f8b6
+
+https://creately.com/diagram/example/iosv0d302/E-commerce%20database%20schema
+
+https://github.com/ramortegui/e-commerce-db
+
+https://www.researchgate.net/figure/A-simplified-database-schema-for-e-commerce-transaction-processing_fig2_2359510

@@ -14,11 +14,13 @@ class Telephones extends Migration
     public function up()
     {
         Schema::create('telephones', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('id_users');
-            $table->integer('tel1');
-            $table->integer('tel2');
+            $table->increments('id');
+           
+            $table->bigInteger('tel1');
+            $table->bigInteger('tel2')->nullable();
             $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

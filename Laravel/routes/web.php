@@ -13,17 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/login', 'SessionsController@create');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
+
 Route::get('/ol', function () {
     return view('sejaBemVindo');
 });
 
+<<<<<<< HEAD
 Route::get('/mylogin', function() {
     return view('myLogin');
 })->name('mylogin');
+=======
+>>>>>>> 2a704c9417a6e5ee3a20dda32364bc7bc588936d
 
-Route::get('/cadastro', function() {
-    return view('cadastro');
-});
+Route::get('/cadastro', 'UsersController@create')
+->name('pagina_cadastro');
 
 Route::post('/cadastro', 'UsersController@store');
 
@@ -31,58 +40,53 @@ Route::get('/home', function() {
     return view('home');
 });
 
-Route::get('/perfil', function() {
-    return view('perfilArtista');
-});
+
+Route::get('perfil', 'EnderecoController@indexPerfil');
+
+
+Route::get('perfil', 'productController@indexPerfil');
 
 Route::get('/termosprivacidade', function() {
     return view('termosPrivacidade');
 })->name('termos');
 
-Route::get('/categorias/almofadas', 'almofadasController@listarAlmofadas')
+Route::get('/categorias/almofadas', 'CategoryController@listarAlmofadas')
 ->name('categoria-almofadas');
 
-Route::get('/categorias/bolsas', 'bolsasController@listarBolsas')
+Route::get('/categorias/bolsas', 'CategoryController@listarBolsas')
 ->name('categoria-bolsas');
 
-Route::get('/categorias/cadernos', 'cadernosController@listarCadernos')
+Route::get('/categorias/cadernos', 'CategoryController@listarCadernos')
 ->name('categoria-cadernos');
 
-Route::get('/categorias/camisetas', function() {
-    return view('categorias/camisetas');
-})->name('categoria-camisetas');
+Route::get('/categorias/camisetas', 'CategoryController@listarCamisetas')
+->name('categoria-camisetas');
 
-Route::get('/categorias/canecas', function() {
-    return view('categorias/canecas');
-})->name('categoria-canecas');
+Route::get('/categorias/canecas', 'CategoryController@listarCanecas')
+->name('categoria-canecas');
 
-Route::get('/categorias/cartoes', function() {
-    return view('categorias/cartoes');
-})->name('categoria-cartoes');
+Route::get('/categorias/cartoes', 'CategoryController@listarCartoes')
+->name('categoria-cartoes');
 
-Route::get('/categorias/cases', function() {
-    return view('categorias/cases');
-})->name('categoria-cases');
+Route::get('/categorias/cases', 'CategoryController@listarCases')
+->name('categoria-cases');
 
-Route::get('/categorias/chinelos', function() {
-    return view('categorias/chinelos');
-})->name('categoria-chinelos');
+Route::get('/categorias/chinelos', 'CategoryController@listarChinelos')
+->name('categoria-chinelos');
 
-Route::get('/categorias/leggins', function() {
-    return view('categorias/leggins');
-})->name('categoria-leggins');
+Route::get('/categorias/leggins', 'CategoryController@listarLeggins')
+->name('categoria-leggins');
 
-Route::get('/categorias/magnetos', function() {
-    return view('categorias/magnetos');
-})->name('categoria-magnetos');
+Route::get('/categorias/magnetos', 'CategoryController@listarMagnetos')
+->name('categoria-magnetos');
 
-Route::get('/categorias/meias', function() {
-    return view('categorias/meias');
-})->name('categoria-meias');
+Route::get('/categorias/meias', 'CategoryController@listarMeias')
+->name('categoria-meias');
 
-Route::get('/categorias/posters', 'postersController@listarPosters')
+Route::get('/categorias/posters', 'CategoryController@listarPosters')
 ->name('categoria-posters');
 
+<<<<<<< HEAD
 Auth::routes();
 
 Route::get('/produto', 'ProdutoController@index')->name('produto');
@@ -94,3 +98,16 @@ Route::get('/produto', 'ProdutoController@index')->name('produto');
 Auth::routes();
 
 Route::get('/produto', 'ProdutoController@index')->name('produto');
+=======
+Route::get('/prod-det', function() {
+    return view('produtodetalhado');
+});
+
+Route::get('/finalizarcompra', function() {
+    return view('finalizarcompra');
+});
+
+Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
+
+Route::post('/cadastroProduto', 'productController@store');
+>>>>>>> 2a704c9417a6e5ee3a20dda32364bc7bc588936d

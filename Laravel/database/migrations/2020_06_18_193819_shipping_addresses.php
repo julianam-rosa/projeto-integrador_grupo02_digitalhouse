@@ -14,16 +14,20 @@ class ShippingAddresses extends Migration
     public function up()
     {
         Schema::create('shipping_addresses', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('id_users');
+            $table->increments('id');
+           
             $table->string('state');
             $table->string('city');
             $table->string('neighborhood');
             $table->string('street');
             $table->integer('number');
-            $table->string('complement');
-            $table->integer('postalCode');
+            $table->string('complement')->nullable();
+            $table->bigInteger('postalCode');
             $table->timestamps();
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 
