@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\CategoriasModel;
 use Illuminate\Http\Request;
 use App\products;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class productController extends Controller
 {
@@ -14,7 +17,8 @@ class productController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = CategoriasModel::all();
+        return view('cadastroProduto', compact('categorias'));
     }
 
     /**
@@ -24,7 +28,8 @@ class productController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = CategoriasModel::all();
+        return view('cadastroProduto', compact('categorias'));
     }
 
     /**
@@ -35,7 +40,32 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $produtos = User::findOrFail(Auth::user()->id);
+        $produtos->produtos()->create([ 
+            'nome' => $request['nome'],
+            'preço' => $request['preço'],
+            'descricao' => $request['descricao'],
+            'imagem1' => $request['imagem1'],
+            'imagem2' => $request['imagem2'],
+            'imagem3' => $request['imagem3'],
+            'categorias_id' => $request['categoria']
+        
+        ]);
+
+        if($request->hasfile("imagem1")){
+            $file = $request->file("imagem1");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' . $extension;
+            $file->move('uploads/todosProdutos', $filename);
+            $produtos->imagem1 = $filename;
+        }else{
+            return $request;
+            $produtos->imagem1 ='';
+        }
+        
+        $produtos->save();
+        return view('/cadastroProduto', compact('produtos'));
     }
 
     /**
@@ -85,9 +115,10 @@ class productController extends Controller
     }
 
     public function listarProdutos(){
-        $todosProdutos = products::paginate(10);
+        $produtos = products::all();
+        $categorias = CategoriasModel::where('id'==1)->get();
 
-        return view('listaProdutos', ['todosProdutos'=> $todosProdutos]);
+        return view('pe', ['produtos'=> $produtos]);
     }
 
 
@@ -96,11 +127,18 @@ class productController extends Controller
         $todosProdutos = new products();
         $resultado = $todosProdutos->search($request->filter);
       
-        return view('listaProdutos', ['todosProdutos'=> $resultado]);
+        return view('home', ['todosProdutos'=> $resultado]);
     }
 
 
-
+    public function indexPerfil()
+    {
+        $user=User::find(Auth::user()->id);
+        $produtos = $user->produtos()->get(); 
+        $total = count($produtos);
+        return view('perfilArtista', compact('produtos','total'));
+      
+    }
 
 
 

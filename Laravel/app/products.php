@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class products extends Model
 {
     protected $fillable = [
-        'nome',  'preço', 'descricao', 'categoria', 'imagem','imagem2','imagem3',
+        'nome',  'preço', 'descricao', 'categoria', 'imagem1','imagem2','imagem3', 'user_id', 'categorias_id',
     ];
 
     public function search($filter = null){
@@ -21,4 +21,10 @@ class products extends Model
         
         return $resultado;
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','id','user_id');
+    }
+
 }

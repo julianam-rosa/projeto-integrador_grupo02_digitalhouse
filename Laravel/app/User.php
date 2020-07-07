@@ -46,4 +46,11 @@ class User extends Authenticatable
     public function telephones() {
         return $this->hasMany(Telephone::class, 'user_id');
     }
+
+
+    public function produtos()
+    {
+        return $this->hasMany('App\products','user_id');
+    }
+   
 }

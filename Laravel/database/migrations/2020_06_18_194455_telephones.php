@@ -14,12 +14,12 @@ class Telephones extends Migration
     public function up()
     {
         Schema::create('telephones', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->increments('id');
+           
             $table->bigInteger('tel1');
             $table->bigInteger('tel2')->nullable();
             $table->timestamps();
-
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

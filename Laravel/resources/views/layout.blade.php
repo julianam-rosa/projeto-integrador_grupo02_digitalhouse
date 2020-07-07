@@ -36,7 +36,7 @@
                     <a class="nav-link navbar-brand text-white" href="/login">Login</a>
                   </li>
                   <li>
-                     <a class="nav-link navbar-brand text-white" href="/cadastrarProduto">Vender</a>
+                     <a class="nav-link navbar-brand text-white" href="/cadastroProduto">Vender</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle navbar-brand text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +69,21 @@
             <a class="btn btn-dark" href="#"><i class="fas fa-shopping-bag"></i></a>
               </div>
           </div>
+          @if( auth()->check() )
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Log Out</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Log In</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/cadastro">Register</a>
+                </li>
+                @endif
             </nav>
       </header>
 </body>

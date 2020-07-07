@@ -13,13 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/login', 'SessionsController@create');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
+
 Route::get('/ol', function () {
     return view('sejaBemVindo');
 });
 
-Route::get('/login', function() {
-    return view('login');
-});
 
 Route::get('/cadastro', 'UsersController@create')
 ->name('pagina_cadastro');
@@ -30,9 +34,11 @@ Route::get('/home', function() {
     return view('home');
 });
 
-Route::get('/perfil', function() {
-    return view('perfilArtista');
-});
+
+Route::get('perfil', 'EnderecoController@indexPerfil');
+
+
+Route::get('perfil', 'productController@indexPerfil');
 
 Route::get('/termosprivacidade', function() {
     return view('termosPrivacidade');
@@ -82,6 +88,6 @@ Route::get('/finalizarcompra', function() {
     return view('finalizarcompra');
 });
 
-Route::get('/cadastrarProduto', function() {
-    return view('cadastroProduto');
-});
+Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
+
+Route::post('/cadastroProduto', 'productController@store');

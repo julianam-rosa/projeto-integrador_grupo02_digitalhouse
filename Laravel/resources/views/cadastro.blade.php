@@ -44,7 +44,7 @@
         </div>
 
     <div class="container d-flex">   
-        <form class="formulario" method="post">
+        <form class="formulario" method="post" >
         @csrf
         
             <div class="flex nome-completo">
