@@ -1,3 +1,5 @@
+<title>Veduta | Canecas</title>
+
 @extends('layout')
 
 @section('conteudo')

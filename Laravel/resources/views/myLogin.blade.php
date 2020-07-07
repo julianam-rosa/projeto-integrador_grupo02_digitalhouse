@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
-    <title>Veduta</title>
+    <title>Veduta | Login</title>
     <link rel="icon" href="./img/logo_veduta-sem-letras.png">
 </head>
 

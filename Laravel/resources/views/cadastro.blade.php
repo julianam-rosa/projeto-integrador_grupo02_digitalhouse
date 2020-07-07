@@ -1,3 +1,5 @@
+<title>Veduta | Cadastro</title>
+
 @extends('layoutHome')
 
 @section('conteudo')

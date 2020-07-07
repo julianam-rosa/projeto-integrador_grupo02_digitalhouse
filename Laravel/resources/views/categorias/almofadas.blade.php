@@ -1,3 +1,5 @@
+<title>Veduta | Almofadas</title>
+
 @extends('layout')
 
 @section('conteudo')

@@ -1,3 +1,5 @@
+<title>Veduta | Perfil</title>
+
 @extends('layout')
 
 @section('conteudo')

@@ -33,7 +33,7 @@
                     <a class="nav-link navbar-brand text-white" href="/home">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link navbar-brand text-white" href="/login">Login</a>
+                    <a class="nav-link navbar-brand text-white" href="{{ route('mylogin')}}">Login</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle navbar-brand text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

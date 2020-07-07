@@ -1,3 +1,5 @@
+<title>Veduta | Termos</title>
+
 @extends('layoutHome')
 
 @section('conteudo')

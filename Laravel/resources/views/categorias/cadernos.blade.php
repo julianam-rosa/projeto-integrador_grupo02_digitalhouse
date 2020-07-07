@@ -1,3 +1,5 @@
+<title>Veduta | Cadernos</title>
+
 @extends('layout')
 
 @section('conteudo')

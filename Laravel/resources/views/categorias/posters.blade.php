@@ -1,3 +1,5 @@
+<title>Veduta | Posters</title>
+
 @extends('layout')
 
 @section('conteudo')

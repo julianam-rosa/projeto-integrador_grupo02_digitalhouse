@@ -17,9 +17,9 @@ Route::get('/ol', function () {
     return view('sejaBemVindo');
 });
 
-Route::get('/login', function() {
-    return view('login');
-});
+Route::get('/mylogin', function() {
+    return view('myLogin');
+})->name('mylogin');
 
 Route::get('/cadastro', function() {
     return view('cadastro');
@@ -82,3 +82,15 @@ Route::get('/categorias/meias', function() {
 
 Route::get('/categorias/posters', 'postersController@listarPosters')
 ->name('categoria-posters');
+
+Auth::routes();
+
+Route::get('/produto', 'ProdutoController@index')->name('produto');
+
+Auth::routes();
+
+Route::get('/produto', 'ProdutoController@index')->name('produto');
+
+Auth::routes();
+
+Route::get('/produto', 'ProdutoController@index')->name('produto');

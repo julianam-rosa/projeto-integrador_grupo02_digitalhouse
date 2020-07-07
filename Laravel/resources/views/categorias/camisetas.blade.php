@@ -1,3 +1,5 @@
+<title>Veduta | Camisetas</title>
+
 @extends('layout')
 
 @section('conteudo')

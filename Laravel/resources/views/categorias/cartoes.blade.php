@@ -1,3 +1,5 @@
+<title>Veduta | Postais</title>
+
 @extends('layout')
 
 @section('conteudo')

@@ -1,3 +1,5 @@
+<title>Veduta | Bolsas</title>
+
 @extends('layout')
 
 @section('conteudo')
