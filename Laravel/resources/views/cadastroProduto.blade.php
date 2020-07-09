@@ -5,7 +5,7 @@
 
 <div class="container">
 
-<form action="/cadastroProduto" class="formulario" method="POST" >
+<form action="/cadastroProduto" class="formulario" method="POST" enctype="multipart/form-data">
 
 @csrf
     <label for="nome">Nome:</label>
@@ -25,7 +25,7 @@
     <select name="categoria" id="categoria">
     @foreach($categorias as $categoria)
     
-        <option value="{{ $categoria->id }}"> {{ $categoria->nome }} </option>
+        <option value="{{ $categoria->id }}"> {{ $categoria->name }} </option>
         
     @endforeach
     </select>

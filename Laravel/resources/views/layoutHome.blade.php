@@ -32,9 +32,11 @@
                   <li class="nav-item active">
                     <a class="nav-link navbar-brand text-white" href="/home">Home <span class="sr-only">(current)</span></a>
                   </li>
+                  @guest
                   <li class="nav-item">
                     <a class="nav-link navbar-brand text-white" href="{{ route('mylogin')}}">Login</a>
                   </li>
+                  @endguest
                   <li>
                      <a class="nav-link navbar-brand text-white" href="/cadastroProduto">Vender</a>
                   </li>

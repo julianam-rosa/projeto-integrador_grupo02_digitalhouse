@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoriasModel;
+use App\Category;
 use Illuminate\Http\Request;
 use App\products;
 use App\User;
@@ -17,7 +17,7 @@ class productController extends Controller
      */
     public function index()
     {
-        $categorias = CategoriasModel::all();
+        $categorias = Category::all();
         return view('cadastroProduto', compact('categorias'));
     }
 
@@ -28,7 +28,7 @@ class productController extends Controller
      */
     public function create()
     {
-        $categorias = CategoriasModel::all();
+        $categorias = Category::all();
         return view('cadastroProduto', compact('categorias'));
     }
 
@@ -40,32 +40,43 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $produtos = User::findOrFail(Auth::user()->id);
-        $produtos->produtos()->create([ 
-            'nome' => $request['nome'],
-            'preço' => $request['preço'],
-            'descricao' => $request['descricao'],
-            'imagem1' => $request['imagem1'],
-            'imagem2' => $request['imagem2'],
-            'imagem3' => $request['imagem3'],
-            'categorias_id' => $request['categoria']
-        
-        ]);
-
-        if($request->hasfile("imagem1")){
+        // dd($request);
+        $user = User::findOrFail(Auth::user()->id);
+        $produto = new products();
+        $produto->name = $request['nome'];
+        $produto->price = $request['preço'];
+        $produto->description = $request['descricao'];
+        $produto->category_id = $request['categoria'];
+        $produto->user_id = Auth::user()->id;
+    
+        if($request->hasfile("imagem1")) {
             $file = $request->file("imagem1");
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' . $extension;
             $file->move('uploads/todosProdutos', $filename);
-            $produtos->imagem1 = $filename;
-        }else{
-            return $request;
-            $produtos->imagem1 ='';
+            $produto->image1 = $filename;
+        }
+
+        if($request->hasfile("imagem2")){
+            $file = $request->file("imagem2");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' . $extension;
+            $file->move('uploads/todosProdutos', $filename);
+            $produto->image2 = $filename;
+        }
+
+        if($request->hasfile("imagem3")){
+            $file = $request->file("imagem3");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' . $extension;
+            $file->move('uploads/todosProdutos', $filename);
+            $produto->image3 = $filename;
         }
         
-        $produtos->save();
-        return view('/cadastroProduto', compact('produtos'));
+        $produto->save();
+
+        $categorias = Category::all();
+        return view('cadastroProduto', compact('categorias'));
     }
 
     /**
@@ -116,7 +127,7 @@ class productController extends Controller
 
     public function listarProdutos(){
         $produtos = products::all();
-        $categorias = CategoriasModel::where('id'==1)->get();
+        $categorias = Category::where('id'==1)->get();
 
         return view('pe', ['produtos'=> $produtos]);
     }

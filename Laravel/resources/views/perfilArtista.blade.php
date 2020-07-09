@@ -34,14 +34,14 @@
 @foreach($produtos as $produto)
     <div id="pr" class="card col-3">
       <a href="perfil-artista.html">
-        <img src="{{ asset('uploads/todosProdutos/') . $produto->imagem1 }}" class="card-img-top" alt="..." width="250px">
+        <img src="{{ asset('uploads/todosProdutos/' . $produto->image1) }}" class="card-img-top" alt="..." width="250px">
       </a>
 
       <div class="card-body">
-            <span class="valor"><strong>R$</strong></span><span class="valor">{{ $produto->preço }}</span>
+            <span class="valor"><strong>R$</strong></span><span class="valor">{{ $produto->price }}</span>
          
-            <span>{{ $produto->nome }}</span>
-            <span>{{ $produto->descricao }}</span>
+            <span>{{ $produto->name }}</span>
+            <span>{{ $produto->description }}</span>
       </div>
     </div>
 
