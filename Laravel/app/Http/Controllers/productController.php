@@ -122,7 +122,10 @@ class productController extends Controller
      */
     public function destroy($id)
     {
-        
+        $produtos = products::find($id);
+        $produtos->delete();
+
+        return view('home');   
     }
 
     public function listarProdutos(){
@@ -151,8 +154,11 @@ class productController extends Controller
       
     }
 
+    public function detalhes($id){
+        $produtos = products::find($id);
+              return view('detalheProduto', ['produtos'=>$produtos]);
 
-
+    }
 
 
 }

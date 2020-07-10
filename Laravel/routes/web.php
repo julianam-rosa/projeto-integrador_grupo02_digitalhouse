@@ -84,3 +84,7 @@ Route::get('/categorias/posters', 'CategoryController@listarPosters')
 Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
 
 Route::post('/cadastroProduto', 'productController@store');
+
+Route::get('destroy/{id}', 'productController@destroy');
+
+Route::get('/detalheProduto/{id}', 'productController@detalhes');
