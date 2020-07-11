@@ -67,7 +67,7 @@
                 <span>sexo(*)</span>
                 <input type="radio" name="sex" value="male"> Masculino
                 <input type="radio" name="sex" value="female"> Feminino
-                <input type="radio" name="sex" value="outros"> Outros
+                <input type="radio" name="sex" value="other"> Outros
             </div>
             <div class="field">
                 <label for="nascimento">data de Nascimento(*)</label>

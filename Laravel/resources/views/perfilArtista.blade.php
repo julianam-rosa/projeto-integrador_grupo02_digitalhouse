@@ -16,7 +16,7 @@
         <div class="row">
 
             <a class="col-3 i navbar-brand" href="#">
-                <img class="rounded-circle" src="/img/canecas/caneca-7.jpg" width="80%">
+                <img class="rounded-circle" src="/img/Ellipse_16.png" width="80%">
                 <button class="btn btn-primary"><i class="fas fa-plus"></i> Seguir</button>
                 <button class="btn btn-danger"><i class="fas fa-donate"></i> Doar</button>
             </a>
