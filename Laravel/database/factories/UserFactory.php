@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'surname' => $faker->lastName,
-        'sex' => $faker->randomElement($array = array ('male','female','other')),
+        'sex' => $faker->randomElement($array = array ('male','female','outros')),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => bcrypt('12345678'),
