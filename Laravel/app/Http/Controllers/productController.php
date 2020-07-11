@@ -125,7 +125,7 @@ class productController extends Controller
         $produtos = products::find($id);
         $produtos->delete();
 
-        return view('home');   
+        return redirect()->route('home');  
     }
 
     public function listarProdutos(){
@@ -150,7 +150,9 @@ class productController extends Controller
         $user=User::find(Auth::user()->id);
         $produtos = $user->produtos()->get(); 
         $total = count($produtos);
-        return view('perfilArtista', compact('produtos','total'));
+        $categorias = Category::all();
+
+        return view('perfilArtista', compact('produtos','total', 'categorias'));
       
     }
 

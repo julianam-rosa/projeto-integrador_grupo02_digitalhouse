@@ -23,7 +23,10 @@
                         <img src="../img/logo_colorido.png" width="100">
                     </a>
 
+                    @auth
                     <a class="navbar-brand text-white" href="/perfil"><i class="fas fa-user"></i> Perfil</a>
+                    @endauth
+                    
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -41,9 +44,13 @@
                                 <a class="nav-link navbar-brand text-white" href="{{ route('mylogin')}}">Login</a>
                             </li>
                             @endguest
+
+                            @auth
                             <li>
                                 <a class="nav-link navbar-brand text-white" href="/cadastroProduto">Vender</a>
                             </li>
+                            @endauth
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle navbar-brand text-white" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
