@@ -19,7 +19,7 @@
                 class="card-img-top" alt="..." width="250px"></li>
     </ul>
 
-    <a href="destroy/{{$produtos->id}}" class="btn btn-danger"> Deletar</a>
+
 </div>
 
 
