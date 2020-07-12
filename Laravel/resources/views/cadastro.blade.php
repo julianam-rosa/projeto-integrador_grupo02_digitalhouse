@@ -56,17 +56,6 @@ function validar_form_cadastro() {
         <div class="campos-preencher"> PREENCHER TODOS OS CAMPOS COM (*), POIS SÃO OBRIGATÓRIOS.</div>
 
     </div>
-    <!-- <h5>Você pode se cadastrar usando informações de sua contas de redes socias, email ou preencher os campos abaixo:</h5>
-
-
-<div class="">
-    <div class="botao-face">
-        <button class="btn"><img id="fa" src="./img/Botão Facebook.png"></button>
-    </div>
-    <div class="botao-gmail">
-        <button class="btn"><img id="cad-google" src="./img/Botão Gmail.png"></button>
-    </div>
-</div> -->
 
     <div class="info">
         <h4 class="titulo">Informações Pessoais</h4>

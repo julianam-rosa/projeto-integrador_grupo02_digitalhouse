@@ -49,15 +49,7 @@
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categorias
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    @foreach($categorias as $categoria)
-                                    <a class="dropdown-item"
-                                        href="/categorias/{{$categoria->id}}">{{ $categoria->name }}</a>
-
-                                    @endforeach
-
-                                </div>
                             </li>
 
                         </ul>
