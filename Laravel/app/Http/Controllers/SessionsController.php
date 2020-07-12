@@ -8,7 +8,7 @@ class SessionsController extends Controller
 {
     public function create()
     {
-        return view('/login');
+        return view('myLogin');
     }
     
     public function store()
@@ -19,14 +19,14 @@ class SessionsController extends Controller
                 ]);
             }
             
-            return redirect()->to('/home');
+            return redirect()->route('home');
         }
         
         public function destroy()
         {
             auth()->logout();
             
-            return redirect()->to('/login');
+            return redirect()->route('mylogin');
         }
     
 }

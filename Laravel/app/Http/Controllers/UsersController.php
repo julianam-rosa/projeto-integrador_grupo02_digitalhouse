@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{User, Telephone, ShippingAddress};
+use App\{User, Telephone, ShippingAddress, Category};
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\{Hash, Validator, DB};
 use App\Providers\RouteServiceProvider;
@@ -29,7 +29,8 @@ class UsersController extends Controller
     {
         $mensagem = $request->session()->get('mensagem');
 
-        return view('cadastro', compact('mensagem'));
+        $categorias = Category::all();
+        return view('cadastro', compact('mensagem', 'categorias'));
     }
 
     /**

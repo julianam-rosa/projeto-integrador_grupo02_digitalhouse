@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/login', 'SessionsController@create');
+Route::get('/login', 'SessionsController@create')
+->name('login');
 
 Route::post('/login', 'SessionsController@store');
 
@@ -35,12 +37,14 @@ Route::get('/cadastro', 'UsersController@create')
 
 Route::post('/cadastro', 'UsersController@store');
 
-Route::get('/home', 'CategoryController@index');
+Route::get('/home', 'CategoryController@index')
+->name('home');
 
 Route::get('perfil', 'productController@indexPerfil');
 
 Route::get('/termosprivacidade', function() {
-    return view('termosPrivacidade');
+    $categorias = Category::all();
+    return view('termosPrivacidade', compact('categorias'));
 })->name('termos');
 
 Route::get('/categorias/{id}', 'CategoryController@listarCategorias');
