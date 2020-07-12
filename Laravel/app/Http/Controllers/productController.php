@@ -179,11 +179,8 @@ class productController extends Controller
         $user=User::find(Auth::user()->id);
         $produtos = $user->produtos()->get(); 
         $total = count($produtos);
-<<<<<<< HEAD
-=======
         $categorias = Category::all();
 
->>>>>>> 234564ba1e5258d72eca156477a0371c69ffc71e
         return view('perfilArtista', compact('produtos','total', 'categorias'));
       
     }
