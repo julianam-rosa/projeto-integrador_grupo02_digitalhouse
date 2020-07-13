@@ -70,5 +70,4 @@ Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho
 Route::get('destroy/{id}', 'productController@destroy');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
-Route::get('teste/{id}', 'CategoryController@listarCategorias');
 

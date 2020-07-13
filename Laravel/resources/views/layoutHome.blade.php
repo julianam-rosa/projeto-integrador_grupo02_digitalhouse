@@ -77,7 +77,7 @@
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
                                     class="fas fa-search"></i></button>
                         </form>
-                        <a class="btn btn-dark" href="#"><i class="fas fa-shopping-bag"></i></a>
+                        <a class="btn btn-dark" href="{{ route('carrinho.index')}}"><i class="fas fa-shopping-bag"></i></a>
                     </div>
                 </div>
                 @if( auth()->check() )

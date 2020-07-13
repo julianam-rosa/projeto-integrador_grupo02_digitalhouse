@@ -80,7 +80,7 @@
                 </div>
                 @if( auth()->check() )
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
+                    <a class="nav-link font-weight-bold" href="{{ route('carrinho.index')}}"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
                     
                 </li>
                 <li class="nav-item">
