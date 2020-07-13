@@ -1158,13 +1158,7 @@ button.doar {
     }
 }
 
-#descricaou{
-    border: solid 5px black;
-    padding: 1px;
-    height: 10%;
-    margin-left: 9%;
-    margin-top: 2%;
-}
+
 
 @media(max-width:640px){
 
@@ -1263,4 +1257,10 @@ button.doar {
     }
     
     
+}
+
+#tema-per{
+    position: relative;
+    top: 50px;
+    text-align: center;
 }

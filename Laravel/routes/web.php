@@ -84,3 +84,13 @@ Route::get('/categorias/posters', 'CategoryController@listarPosters')
 Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
 
 Route::post('/cadastroProduto', 'productController@store');
+
+Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
+
+
+Route::get('/carrinho/adicionar', function () {
+    return view('carrinho');
+});
+
+Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar');
+

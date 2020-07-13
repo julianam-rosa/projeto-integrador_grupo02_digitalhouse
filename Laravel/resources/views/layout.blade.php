@@ -73,7 +73,8 @@
           </div>
           @if( auth()->check() )
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>
+                    <a class="nav-link font-weight-bold" href="#"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Log Out</a>
@@ -100,19 +101,7 @@
     
       @yield('conteudo')
 
-      <div class="pagination justify-content-center" style="margin-left:auto;margin-right:auto";>
-              <a href="#">&laquo;</a>
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
-              <a href="#">7</a>
-              <a href="#">8</a>
-              <a href="#">9</a>
-              <a href="#">&raquo;</a>
-        </div>       
+          
 
 
       <footer>

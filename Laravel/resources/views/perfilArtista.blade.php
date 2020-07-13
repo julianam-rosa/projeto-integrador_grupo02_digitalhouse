@@ -6,7 +6,7 @@
 
 <main>
 
-<br><br><br><br><br><br>
+
 
     <!-- foto de capa -->
 <div id="capa-perfil"></div>
@@ -17,15 +17,8 @@
 
     <a class="col-3 i navbar-brand" href="#">
       <img class="rounded-circle" src="/img/canecas/caneca-7.jpg" width="80%">
-      <button class="btn btn-primary"><i class="fas fa-plus"></i> Seguir</button>
-      <button class="btn btn-danger"><i class="fas fa-donate"></i> Doar</button>
     </a>
 
-<!-- descrição -->
-
-    <div id="descricaou" class="col-7 rounded">
- 
-  </div>
 
 
     <div>
@@ -41,7 +34,7 @@
             <span class="valor"><strong>R$</strong></span><span class="valor">{{ $produto->price }}</span>
          
             <span>{{ $produto->name }}</span>
-            <span>{{ $produto->description }}</span>
+      
       </div>
     </div>
 
@@ -52,4 +45,13 @@
 
 <br><br><br>
 
-@endsection
+@endsection 
+
+
+<!-- <form method="POST" action=" {{ route('carrinho.adicionar') }}"> -->
+  {{ csrf_field() }}
+  <input type="hidden" name="id" value="{{ registro->id }}">
+  <button class="btn-large col 16 m6 s6 green accent-4 tooltipped" data-position="button" data-delaney="50" data-tooltip=" O produto será adicionado ao seu carrinho">Comprar</button>
+
+
+<!-- </form> -->

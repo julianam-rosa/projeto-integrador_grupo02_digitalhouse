@@ -122,7 +122,7 @@ class productController extends Controller
      */
     public function destroy($id)
     {
-        
+        //
     }
 
     public function listarProdutos(){
