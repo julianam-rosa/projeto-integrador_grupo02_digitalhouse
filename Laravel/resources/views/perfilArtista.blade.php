@@ -6,7 +6,9 @@
 
 <main>
 
-    <br><br><br><br><br><br>
+
+ 
+
 
     <!-- foto de capa -->
     <div id="capa-perfil"></div>
@@ -17,8 +19,6 @@
 
             <a class="col-3 i navbar-brand" href="#">
                 <img class="rounded-circle" src="/img/Ellipse_16.png" width="80%">
-                <button class="btn btn-primary"><i class="fas fa-plus"></i> Seguir</button>
-                <button class="btn btn-danger"><i class="fas fa-donate"></i> Doar</button>
             </a>
 
             <!-- descrição -->
@@ -27,11 +27,14 @@
 
             </div>
 
+    
+@foreach($produtos as $produto)
+   
 
             <div>
                 <h3 id="tema-per">Produtos</h3>
             </div>
-            @foreach($produtos as $produto)
+          
             <div id="pr" class="card col-3">
                 <a href="/detalheProduto/{{$produto->id}}">
                     <img src="{{ asset('uploads/todosProdutos/' . $produto->image1) }}" class="card-img-top" alt="..."
@@ -47,11 +50,13 @@
                 </div>
             </div>
 
-            @endforeach
+ @endforeach
 
         </div>
     </div>
 
     <br><br><br>
 
-    @endsection
+
+@endsection
+

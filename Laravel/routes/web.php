@@ -55,7 +55,20 @@ Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
 
 Route::post('/cadastroProduto', 'productController@store');
 
+
+Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
+
+
+Route::get('/carrinho/adicionar', function () {
+    return view('carrinho');
+});
+
+Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
+Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
+
+
 Route::get('destroy/{id}', 'productController@destroy');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
 Route::get('teste/{id}', 'CategoryController@listarCategorias');
+

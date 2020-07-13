@@ -80,7 +80,8 @@
                 </div>
                 @if( auth()->check() )
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>
+                    <a class="nav-link font-weight-bold" href="#"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Log Out</a>
@@ -94,82 +95,63 @@
                 </li>
                 @endif
             </nav>
-        </header>
-    </body>
+
+      </header>
+</body>
+
+          
 
 
 
+               
+
+               
+    
+      @yield('conteudo')
+
+          
 
 
+      <footer>
+          <div class="footer">
+              <div class="flex grupo-footer ">
+                  <div class="sobre">
+                      <h3>Sobre Nós</h3>
 
+                      <div class="termos">
+                          <h3><a href="{{ route('termos')}}">Termos e privacidade</a></h3>
+                      </div>
+                  </div>
+                  <div class="social">
+                      <h3>Redes Sociais</h3>
+                      <div class="flex mg_top">
+                          <div class="face">
+                              <a href="https://www.facebook.com/"> <img id="facebook" src="../img/facebook.png"></a>
+                          </div>
+                          <div class="twitter">
+                              <a href="https://twitter.com/login?lang=pt"><img id="twitter" src="../img/twitter.png"></a>
+                          </div>
+                          <div class="insta">
+                              <a href="https://www.instagram.com/?hl=pt-br"><img id="insta" src="../img/instagram.png"></a>
+                          </div>
+                      </div>
 
+                  </div>
+                  <div class="ajuda">
+                      <h3>Ajuda</h3>
+                      <h3><a href="">Trocas e Devoluções</a></h3>
 
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <script type="text/javascript" src="../js/jquery.js"></script>
+      <script type="text/javascript" src="../js/jquery-migrate.js/"></script>
+      <script type="text/javascript" src="../js/slick.min.js"></script>
+      <script type="text/javascript" src="../js/main.js"></script>
+  </body>
 
-    @yield('conteudo')
-
-    <div class="pagination justify-content-center" style="margin-left:auto;margin-right:auto" ;>
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">7</a>
-        <a href="#">8</a>
-        <a href="#">9</a>
-        <a href="#">&raquo;</a>
-    </div>
-
-
-    <footer>
-        <div class="footer">
-            <div class="flex grupo-footer ">
-                <div class="sobre">
-                    <h3>Sobre Nós</h3>
-
-                    <div class="termos">
-                        <h3><a href="{{ route('termos')}}">Termos e privacidade</a></h3>
-                    </div>
-                </div>
-                <div class="social">
-                    <h3>Redes Sociais</h3>
-                    <div class="flex mg_top">
-                        <div class="face">
-                            <a href="https://www.facebook.com/"> <img id="facebook" src="../img/facebook.png"></a>
-                        </div>
-                        <div class="twitter">
-                            <a href="https://twitter.com/login?lang=pt"><img id="twitter" src="../img/twitter.png"></a>
-                        </div>
-                        <div class="insta">
-                            <a href="https://www.instagram.com/?hl=pt-br"><img id="insta"
-                                    src="../img/instagram.png"></a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="ajuda">
-                    <h3>Ajuda</h3>
-                    <h3><a href="">Trocas e Devoluções</a></h3>
-
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    <script type="text/javascript" src="../js/jquery-migrate.js/"></script>
-    <script type="text/javascript" src="../js/slick.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
-    </body>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-    </script>
-
-</html>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </html>

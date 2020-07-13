@@ -19,6 +19,12 @@
                 class="card-img-top" alt="..." width="250px"></li>
     </ul>
 
+<form method="POST" action=" {{ route('carrinho.adicionar') }}"> 
+         {{ csrf_field() }} 
+<input type="hidden" name="id" value="{{ $produtos->id }}"> 
+<button class="btn-large col 16 m6 s6 green accent-4 tooltipped" data-position="button" data-delaney="50" data-tooltip=" O produto será adicionado ao seu carrinho">Comprar</button> 
+</form> 
+
 
 </div>
 
