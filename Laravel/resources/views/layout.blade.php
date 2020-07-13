@@ -57,9 +57,10 @@
                                     Categorias
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php $categorias=DB::table('categories')->get(); ?>
                                     @foreach($categorias as $categoria)
-                                    <a class="dropdown-item"
-                                        href="/categorias/{{$categoria->id}}">{{ $categoria->name }}</a>
+                                        <a class="dropdown-item"
+                                        href="{{url('categorias', $categoria->id)}}">{{ucwords($categoria->name)}}</a>
 
                                     @endforeach
 

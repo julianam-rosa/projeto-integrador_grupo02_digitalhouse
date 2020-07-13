@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class products extends Model
 {
+    protected $table = 'products';
+
     protected $fillable = [
         'name',  'price', 'description', 'category', 'image1','image2','image3', 'user_id', 'category_id',
     ];
@@ -32,4 +34,5 @@ class products extends Model
         return $this->belongsTo('App\Category','id','category_id');
     }
 
+    
 }
