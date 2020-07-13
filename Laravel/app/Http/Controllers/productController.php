@@ -151,14 +151,14 @@ class productController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
+
         //
-=======
+
         $produtos = products::find($id);
         $produtos->delete();
 
         return redirect()->route('home');  
->>>>>>> 55c1124a05913ebcc9947e1d914475ad82ef579c
+
     }
 
     public function listarProdutos(){

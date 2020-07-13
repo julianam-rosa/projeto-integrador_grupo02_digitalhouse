@@ -38,24 +38,19 @@
       <td>{{ number_format($pedido_produto->produto->price, 2, ',' , '.') }}</td>
       <!-- <td> <a href="" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Retirar produto do carrinho?" > Retirar Produto</a></td> -->
     </tr>
-    @endforeach
+    
   </tbody>
+
+@endforeach
 </table>
+ <div class="row"> 
+         <strong class="col offset-16 offset-m6 offset-s6  14 m4 s4 right-align"> Total do pedido: </strong> 
+         <span class="col 12 m2 s2" >
+            R$: {{ number_format($total_pedido, 2, ',' , '.') }} 
+         </span> 
+ </div> 
 
-@php
 
-  $total_produto = $pedido_produto->valores;
-
-  $total_pedido += $total_produto;
-
-@endphp
-
-<div class="row">
-        <strong class="col offset-16 offset-m6 offset-s6  14 m4 s4 right-align"> Total do pedido: </strong>
-        <span class="col 12 m2 s2" >
-            R$: {{ number_format($total_pedido, 2, ',' , '.') }}
-        </span>
-        </div>
 @empty
 
 <h5>Não há produtos</h5>
@@ -63,6 +58,35 @@
 @endforelse
   </div>
 </div>
+
+<button class="btn btn-success">COMPRAR</button>
+
+<br>
+
+
+
+
+<script type="text/javascript">
+
+/*teste para remover*/
+  function removeProduto(p_idPedido, p_idProduto, p_item){
+
+    $.ajax( {
+      url: "{{ route('carrinho.remover') }}",
+      method: DELETE,
+      data: {
+        _token: "{{ csrf_token() }}",
+        pedido_id: p_idPedido,
+        products_id :p_idProduto,
+        item: p_item
+      }
+    })
+      .always(function(){
+          location.reload();
+      });
+  }
+</script>
+
 
 
 

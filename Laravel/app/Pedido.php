@@ -19,8 +19,9 @@ class Pedido extends Model
         
     }
 
-    public static function consultaId($where){
+    public static function consultaId($where)
+    {
         $pedido = self::where($where)->first(['id']);
-        return !empty($pedido->id) ? $pedido-> : null;
+        return !empty($pedido->id) ? $pedido->id : null;
     }
 }
