@@ -6,7 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\products;
 use App\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\{Auth, Validator, DB};
 
 class productController extends Controller
 {
@@ -18,6 +18,7 @@ class productController extends Controller
     public function index()
     {
         $categorias = Category::all();
+        
         return view('cadastroProduto', compact('categorias'));
     }
 
@@ -26,10 +27,16 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+      
         $categorias = Category::all();
         return view('cadastroProduto', compact('categorias'));
+        
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('cadastro', compact('mensagem'));
+        
     }
 
     /**
@@ -40,13 +47,28 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        $this->validate($request,        [
+            'nome' => 'required|max:255',
+            'preço' => 'required',
+            'descricao' => 'required',
+            'imagem1' => 'required',
+            ],
+        [
+            'required' => 'O campo :attribute é necessário.',
+            'max' => 'O campo :attribute deve ter no máximo :max caracteres.',
+            
+                ]
+    );
+
+
+        DB::beginTransaction();
+       
         $user = User::findOrFail(Auth::user()->id);
         $produto = new products();
-        $produto->name = $request['nome'];
-        $produto->price = $request['preço'];
-        $produto->description = $request['descricao'];
-        $produto->category_id = $request['categoria'];
+        $produto->name = $request["nome"];
+        $produto->price = $request["preço"];
+        $produto->description = $request["descricao"];
+        $produto->category_id = $request["categoria"];
         $produto->user_id = Auth::user()->id;
     
         if($request->hasfile("imagem1")) {
@@ -75,8 +97,15 @@ class productController extends Controller
         
         $produto->save();
 
-        $categorias = Category::all();
-        return view('cadastroProduto', compact('categorias'));
+        DB::commit();
+
+        $request->session()->flash('mensagem',
+        "Usuário cadastrado com sucesso.");
+
+        return redirect()->route('Produtos');
+
+       
+     
     }
 
     /**
@@ -122,7 +151,14 @@ class productController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         //
+=======
+        $produtos = products::find($id);
+        $produtos->delete();
+
+        return redirect()->route('home');  
+>>>>>>> 55c1124a05913ebcc9947e1d914475ad82ef579c
     }
 
     public function listarProdutos(){
@@ -147,12 +183,17 @@ class productController extends Controller
         $user=User::find(Auth::user()->id);
         $produtos = $user->produtos()->get(); 
         $total = count($produtos);
-        return view('perfilArtista', compact('produtos','total'));
+        $categorias = Category::all();
+
+        return view('perfilArtista', compact('produtos','total', 'categorias'));
       
     }
 
+    public function detalhes($id){
+        $produtos = products::find($id);
+              return view('detalheProduto', ['produtos'=>$produtos]);
 
-
+    }
 
 
 }
