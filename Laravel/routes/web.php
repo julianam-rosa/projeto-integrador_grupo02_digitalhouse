@@ -37,6 +37,8 @@ Route::get('/cadastro', 'UsersController@create')
 
 Route::post('/cadastro', 'UsersController@store');
 
+Route::get('/','HomeController@index')->name('home');
+
 Route::get('/home', 'CategoryController@index')
 ->name('home');
 
@@ -47,7 +49,7 @@ Route::get('/termosprivacidade', function() {
     return view('termosPrivacidade', compact('categorias'));
 })->name('termos');
 
-Route::get('/categorias/{id}', 'CategoryController@listarCategorias');
+Route::get('/categorias/{id}', 'CategoryController@show');
 
 Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
 
@@ -68,5 +70,4 @@ Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho
 Route::get('destroy/{id}', 'productController@destroy');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
-Route::get('teste/{id}', 'CategoryController@listarCategorias');
 

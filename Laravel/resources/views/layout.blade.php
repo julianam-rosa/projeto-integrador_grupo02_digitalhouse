@@ -57,7 +57,13 @@
                                     Categorias
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    
+                                    <?php $categorias=DB::table('categories')->get(); ?>
+                                    @foreach($categorias as $categoria)
+                                        <a class="dropdown-item"
+                                        href="{{url('categorias', $categoria->id)}}">{{ucwords($categoria->name)}}</a>
+
+                                    @endforeach
+
                                 </div>
                             </li>
 
@@ -74,7 +80,7 @@
                 </div>
                 @if( auth()->check() )
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
+                    <a class="nav-link font-weight-bold" href="{{ route('carrinho.index')}}"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
                     
                 </li>
                 <li class="nav-item">

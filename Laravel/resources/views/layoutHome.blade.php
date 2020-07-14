@@ -56,7 +56,19 @@
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categorias
                                 </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php $categorias=DB::table('categories')->get(); ?>
+                                    @foreach($categorias as $categoria)
+                                        <a class="dropdown-item"
+                                        href="{{url('categorias', $categoria->id)}}">{{ucwords($categoria->name)}}</a>
+                                        
+                                        {{-- ALTERNATIVA --}}
+                                        {{-- <a class="dropdown-item"
+                                        href="/categorias/{{$categoria->id}}">{{ $categoria->name }}</a> --}}
 
+                                    @endforeach
+
+                                </div>
                             </li>
 
                         </ul>
@@ -65,7 +77,7 @@
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
                                     class="fas fa-search"></i></button>
                         </form>
-                        <a class="btn btn-dark" href="#"><i class="fas fa-shopping-bag"></i></a>
+                        <a class="btn btn-dark" href="{{ route('carrinho.index')}}"><i class="fas fa-shopping-bag"></i></a>
                     </div>
                 </div>
                 @if( auth()->check() )
