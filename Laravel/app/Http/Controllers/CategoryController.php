@@ -79,7 +79,7 @@ public function destroi($id)
         
         $categorias->save();
 
-        return redirect()->route('/crudCategorias');
+        return redirect()->route('home');
     }
 
 }
