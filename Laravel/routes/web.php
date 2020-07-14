@@ -71,3 +71,10 @@ Route::get('destroy/{id}', 'productController@destroy');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
 
+Route::get('/crudCategorias', 'CategoryController@indexcrud');
+
+Route::get('/crudCategorias', 'CategoryController@createCrudeCategorias');
+
+Route::post('/crudCategorias', 'CategoryController@store');
+
+Route::get('destroi/{id}', 'CategoryController@destroi');

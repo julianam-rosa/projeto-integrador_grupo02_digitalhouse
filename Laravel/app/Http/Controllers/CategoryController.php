@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests; 
 use App\Category;
 
 class CategoryController extends Controller
@@ -29,6 +30,56 @@ class CategoryController extends Controller
         
         
     }
+    
+    public function create(Request $request)
+    {
+      
+        $categorias = Category::all();
+        return view('cadastroProduto', compact('categorias'));
+        
+        $mensagem = $request->session()->get('mensagem');
 
+        return view('cadastro', compact('mensagem'));
+        
+    }
+
+public function destroi($id)
+    {
+
+        //
+
+        $categorias = Category::find($id);
+        $categorias->delete();
+
+        return redirect()->route('home');
+
+    }
+
+    public function indexcrud(){
+        $categorias = Category::all();
+        
+        return view('/crudCategorias', compact('categorias'));
+    
+    }
+
+    public function createCrudeCategorias(Request $request)
+    {
+               $categorias = Category::all();
+              $mensagem = $request->session()->get('mensagem');
+
+        return view('crudCategorias', compact('mensagem', 'categorias'));
+        
+           }
+
+    public function store(Request $request)
+    {
+        
+        $categorias = new Category();
+        $categorias->name = $request["name"];
+        
+        $categorias->save();
+
+        return redirect()->route('/crudCategorias');
+    }
 
 }
