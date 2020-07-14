@@ -1,3 +1,10 @@
+<script>
+  function pagar(){
+    return alert("Compra realizada com sucesso!");
+  }
+</script>
+
+
 
 @extends('layout')
 
@@ -24,24 +31,35 @@
   </thead>
   <tbody>
 
- 
+
 @php
   $total_pedido = 0;
  @endphp
       
 
   @foreach($pedido->pedido_produtos as $pedido_produto)
+
+  
     <tr>
       <th scope="row">{{ $pedido->id }}</th>
       <td><img width='100px' height="100px" src="{{ asset('uploads/todosProdutos/' . $pedido_produto->produto->image1) }}" alt=""></td>
       <td>{{ $pedido_produto->produto->name }}</td>
       <td>{{ number_format($pedido_produto->produto->price, 2, ',' , '.') }}</td>
-      <!-- <td> <a href="" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Retirar produto do carrinho?" > Retirar Produto</a></td> -->
+      <!-- <td> <a href="" onclick="carrinhoRemoverProduto( {{ $pedido->id }} , {{ $pedido_produto->idProduto }}, 0)" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Retirar produto do carrinho?" > Retirar Produto</a></td>  -->
+      @php
+    $total_produto = $pedido_produto->valores;
+  
+    $total_pedido += $total_produto;
+  @endphp
+  
+       
     </tr>
     
+ @endforeach   
+
   </tbody>
 
-@endforeach
+
 </table>
  <div class="row"> 
          <strong class="col offset-16 offset-m6 offset-s6  14 m4 s4 right-align"> Total do pedido: </strong> 
@@ -56,38 +74,31 @@
 <h5>Não há produtos</h5>
 
 @endforelse
+
+<button id="btComprar" onclick="alert('Compra realizada com sucesso!')" class="btn btn-success">COMPRAR</button>
+
   </div>
 </div>
 
-<button class="btn btn-success">COMPRAR</button>
 
-<br>
+<form action="{{ route('carrinho.remover') }}" id="form-remover-produto" method="POST">
+  {{ csrf_field() }}
+  {{method_field('DELETE') }}
+  <input type="hidden" name="pedido_id">
+  <input type="hidden" name="products_id">
+  <input type="hidden" name="item">
+</form>
 
+<form action="{{ route('carrinho.adicionar') }}" method="POST" id="form-adicionar-produto">
+  {{ csrf_field() }}
+  <input type="hidden" name="id">
+</form>
 
-
-
-<script type="text/javascript">
-
-/*teste para remover*/
-  function removeProduto(p_idPedido, p_idProduto, p_item){
-
-    $.ajax( {
-      url: "{{ route('carrinho.remover') }}",
-      method: DELETE,
-      data: {
-        _token: "{{ csrf_token() }}",
-        pedido_id: p_idPedido,
-        products_id :p_idProduto,
-        item: p_item
-      }
-    })
-      .always(function(){
-          location.reload();
-      });
-  }
-</script>
-
-
+ <!--
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ asset('js/carrinho.js') }}"></script>
+<script type="text/javascript" src="../js/jquery-migrate.js/"></script>
+ -->
 
 
 @endsection
