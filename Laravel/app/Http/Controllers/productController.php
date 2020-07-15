@@ -100,7 +100,7 @@ class productController extends Controller
         DB::commit();
 
         $request->session()->flash('mensagem',
-        "Usuário cadastrado com sucesso.");
+        "Produto cadastrado com sucesso.");
 
         return redirect()->route('Produtos');
 
@@ -128,7 +128,9 @@ class productController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produtos = products::find($id);
+        $categorias = Category::all();
+        return view('editarProduto', compact('produtos', 'categorias'));
     }
 
     /**
@@ -140,7 +142,44 @@ class productController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+
+        $produto = products::find($id);
+        $produto->name = $request["nome"];
+        $produto->price = $request["preço"];
+        $produto->description = $request["descricao"];
+        $produto->category_id = $request["categoria"];
+
+        if($request->hasfile("imagem1")) {
+            $file = $request->file("imagem1");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' . $extension;
+            $file->move('uploads/todosProdutos', $filename);
+            $produto->image1 = $filename;
+        }
+
+        if($request->hasfile("imagem2")){
+            $file = $request->file("imagem2");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' . $extension;
+            $file->move('uploads/todosProdutos', $filename);
+            $produto->image2 = $filename;
+        }
+
+        if($request->hasfile("imagem3")){
+            $file = $request->file("imagem3");
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' . $extension;
+            $file->move('uploads/todosProdutos', $filename);
+            $produto->image3 = $filename;
+        }
+        
+        $produto->save();
+
+        DB::commit();
+
+        return redirect()->route('Perfil');
+
     }
 
     /**
@@ -157,7 +196,7 @@ class productController extends Controller
         $produtos = products::find($id);
         $produtos->delete();
 
-        return redirect()->route('home');  
+        return redirect()->route('Perfil');  
 
     }
 

@@ -42,7 +42,7 @@ Route::get('/','HomeController@index')->name('home');
 Route::get('/home', 'CategoryController@index')
 ->name('home');
 
-Route::get('perfil', 'productController@indexPerfil')->middleware('auth');
+Route::get('perfil', 'productController@indexPerfil')->name('Perfil')->middleware('auth');
 
 Route::get('/termosprivacidade', function() {
     $categorias = Category::all();
@@ -68,6 +68,10 @@ Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho
 
 
 Route::get('destroy/{id}', 'productController@destroy')->middleware('auth');
+
+Route::get('edit/{id}', 'productController@edit')->middleware('auth');
+
+Route::post('update/{id}', 'productController@update')->middleware('auth');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
 

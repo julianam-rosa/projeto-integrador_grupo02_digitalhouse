@@ -46,7 +46,8 @@
 
                     <span>{{ $produto->name }}</span>
                     <span>{{ $produto->description }}</span>
-                    <a href="destroy/{{$produto->id}}" class="btn btn-danger"> Deletar</a>
+                    <a href="destroy/{{$produto->id}}" class="btn btn-danger">Deletar</a>
+                    <a href="edit/{{$produto->id}}" class="btn btn-warning">Editar</a>
                 </div>
             </div>
 
