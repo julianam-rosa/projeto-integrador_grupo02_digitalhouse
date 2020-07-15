@@ -17,7 +17,7 @@
     <br>
 
     <div class="palavras col-12">
-        <h2> Venda, compre e divulgue sua arte</h2>
+        <h2> Venda, compre e divulgue arte!</h2>
     </div>
 
     <br>

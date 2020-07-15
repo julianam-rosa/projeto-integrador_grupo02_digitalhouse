@@ -26,7 +26,7 @@
                     @auth
                     <a class="navbar-brand text-white" href="/perfil"><i class="fas fa-user"></i> Perfil</a>
                     @endauth
-                    
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -59,11 +59,11 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <?php $categorias=DB::table('categories')->get(); ?>
                                     @foreach($categorias as $categoria)
-                                        <a class="dropdown-item"
+                                    <a class="dropdown-item"
                                         href="{{url('categorias', $categoria->id)}}">{{ucwords($categoria->name)}}</a>
-                                        
-                                        {{-- ALTERNATIVA --}}
-                                        {{-- <a class="dropdown-item"
+
+                                    {{-- ALTERNATIVA --}}
+                                    {{-- <a class="dropdown-item"
                                         href="/categorias/{{$categoria->id}}">{{ $categoria->name }}</a> --}}
 
                                     @endforeach
@@ -72,27 +72,23 @@
                             </li>
 
                         </ul>
-                        <form class="form-inline my-2 my-lg-0" action="procurarProdutos">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
-                                    class="fas fa-search"></i></button>
-                        </form>
-                        <a class="btn btn-dark" href="{{ route('carrinho.index')}}"><i class="fas fa-shopping-bag"></i></a>
+
                     </div>
                 </div>
                 @if( auth()->check() )
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
+                    <a class="nav-link font-weight-bold" href="#"><i class="fas fa-user"></i>
+                        {{ auth()->user()->name }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Log Out</a>
+                    <a class="nav-link" href="/logout">Sair</a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Log In</a>
+                    <a class="nav-link" href="/login">Entrar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/cadastro">Register</a>
+                    <a class="nav-link" href="/cadastro">Registrar</a>
                 </li>
                 @endif
             </nav>
