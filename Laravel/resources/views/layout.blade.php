@@ -84,14 +84,14 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Log Out</a>
+                    <a class="nav-link" href="/logout">Sair</a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Log In</a>
+                    <a class="nav-link" href="/login">Entrar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/cadastro">Register</a>
+                    <a class="nav-link" href="/cadastro">Cadastro</a>
                 </li>
                 @endif
             </nav>
