@@ -33,16 +33,16 @@ Route::get('/mylogin', function() {
 })->name('mylogin');
 
 Route::get('/cadastro', 'UsersController@create')
-->name('pagina_cadastro');
+->name('pagina_cadastro')->middleware('guest');
 
-Route::post('/cadastro', 'UsersController@store');
+Route::post('/cadastro', 'UsersController@store')->middleware('guest');
 
 Route::get('/','HomeController@index')->name('home');
 
 Route::get('/home', 'CategoryController@index')
 ->name('home');
 
-Route::get('perfil', 'productController@indexPerfil');
+Route::get('perfil', 'productController@indexPerfil')->middleware('auth');
 
 Route::get('/termosprivacidade', function() {
     $categorias = Category::all();
@@ -51,23 +51,23 @@ Route::get('/termosprivacidade', function() {
 
 Route::get('/categorias/{id}', 'CategoryController@show');
 
-Route::get('/cadastroProduto', 'productController@create')->name('Produtos');
+Route::get('/cadastroProduto', 'productController@create')->name('Produtos')->middleware('auth');
 
-Route::post('/cadastroProduto', 'productController@store');
+Route::post('/cadastroProduto', 'productController@store')->middleware('auth');
 
 
-Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
+Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index')->middleware('auth');
 
 
 Route::get('/carrinho/adicionar', function () {
     return view('carrinho');
 });
 
-Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
-Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
+Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar')->middleware('auth');
+Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover')->middleware('auth');
 
 
-Route::get('destroy/{id}', 'productController@destroy');
+Route::get('destroy/{id}', 'productController@destroy')->middleware('auth');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
 
