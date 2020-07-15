@@ -71,3 +71,10 @@ Route::get('destroy/{id}', 'productController@destroy')->middleware('auth');
 
 Route::get('/detalheProduto/{id}', 'productController@detalhes');
 
+Route::get('/crudCategorias', 'CategoryController@indexcrud')->middleware('checkAdmin');
+
+Route::get('/crudCategorias', 'CategoryController@createCrudeCategorias')->middleware('checkAdmin');
+
+Route::post('/crudCategorias', 'CategoryController@store')->middleware('checkAdmin');
+
+Route::get('destroi/{id}', 'CategoryController@destroi')->middleware('checkAdmin');

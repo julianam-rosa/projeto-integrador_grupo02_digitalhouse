@@ -121,6 +121,8 @@ class CarrinhoController extends Controller
             ])->delete();
         }
 
+        $req->session()->flash('mensagem-sucesso', 'Produto removido');
+
         return redirect()->route('carrinho.index');
     }
 

@@ -14,7 +14,7 @@ class Pedido extends Model
     public function pedido_produtos()
     {
         return $this->hasMany('App\PedidoProduto')
-        ->select( \DB::raw('products_id', 'sum(valor) as valores count(1) as qtd' ))
+        ->select( \DB::raw('products_id, sum(valor) as valores, count(1) as qtd' ))
         ->groupBy( 'products_id');
         
     }
