@@ -115,13 +115,8 @@ function validar_form_cadastro() {
             </div>
             <div class="flex dado-endereco">
                 <div class="field">
-                    <label for="">Estado</label>
-                    <select name="estado" id="estado"
-                    class="form-control">
-
-            </select>
-
-                    
+                    <label for="estado">estado(*)</label>
+                    <input type="text" id="estado" name="estado" placeholder="Digite seu estado" required>
                 </div>
 
                 <div class="field">
@@ -205,5 +200,4 @@ function validar_form_cadastro() {
 
     </div>
 
-    <script src="{{ asset('js/cadastro.js')}}" href=""></script>
     @endsection
