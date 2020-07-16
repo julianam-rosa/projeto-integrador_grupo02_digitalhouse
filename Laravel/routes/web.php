@@ -82,3 +82,7 @@ Route::get('/crudCategorias', 'CategoryController@createCrudeCategorias')->middl
 Route::post('/crudCategorias', 'CategoryController@store')->middleware('checkAdmin');
 
 Route::get('destroi/{id}', 'CategoryController@destroi')->middleware('checkAdmin');
+
+Route::get('editUser/{id}', 'UsersController@edit')->middleware('auth');
+
+Route::post('updateUser/{id}', 'UsersController@update')->middleware('auth');

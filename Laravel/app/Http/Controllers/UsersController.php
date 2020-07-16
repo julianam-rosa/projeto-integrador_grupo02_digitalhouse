@@ -135,7 +135,14 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        //$usuario = User::where('id', $id)->with('telephones')->toSql();
+        //$usuario = User::where('id', $id)->with('shippingAddresses', 'telephones')->get();
+        $usuario = User::find($id);
+        $enderecos = $usuario->shippingAddresses()->get();
+        $telefones = $usuario->telephones()->get();
+        $categorias = Category::all();
+        //dd($telefones);
+        return view('editarCadastro', compact('usuario', 'categorias', 'enderecos', 'telefones'));
     }
 
     /**
@@ -147,7 +154,85 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+            [
+                'nome' => 'required|max:255',
+                'sobrenome' => 'required|max:255',
+                'email' => 'required|string|email|max:255|confirmed',
+                'sex' => 'required',
+                'senha' => 'required|string|min:8|confirmed',
+                'dataNascimento' => 'required|date',
+                'cpf' => 'required|size:11',
+                'estado' => 'required|string',
+                'cidade' => 'required|string',
+                'bairro' => 'required|string',
+                'rua' => 'required|string',
+                'numero' => 'required|integer',
+                'cep' => 'required|size:8',
+                'celular' => 'required|size:11',
+                'telefone' => 'size:10',
+                'termos' => 'different:off'
+            ],
+            [
+                'required' => 'O campo :attribute é necessário.',
+                'max' => 'O campo :attribute deve ter no máximo :max caracteres.',
+                'unique' => ':attribute já cadastrado.',
+                'email' => 'Email inválido.',
+                'min' => 'O campo :attribute deve ter no mínimo :min caracteres.',
+                'confirmed' => 'O campo :attribute deve ser confirmado.',
+                'date' => 'Data inválida.',
+                'size' => 'O campo :attribute deve ter :size caracteres.',
+                'integer' => 'Campo "Número" inválido.',
+                'different' => 'Você deve aceitar nossos Termos e Condições para efetuar o cadastro.'
+            ]
+        );
+
+        DB::beginTransaction();
+
+        $usuario = User::find($id);
+        $usuario->name = $request["nome"];
+        $usuario->surname = $request["sobrenome"];
+        $usuario->email = $request["email"];
+        $usuario->sex = $request["sex"];
+        $usuario->password = Hash::make($request["senha"]);
+        $usuario->birthdate = $request["dataNascimento"];
+        $usuario->cpf = $request["cpf"];
+
+        if($request["newsletter"] == 'on') {
+        $usuario->newsletter = true; }
+        else {
+        $usuario->newsletter = false;
+        }
+
+        $usuario->save();
+        
+        DB::table('shipping_addresses')->updateOrInsert(
+            ['user_id' => $usuario->id],
+
+            [
+            'state' => $request["estado"],
+            'city' => $request["cidade"],
+            'neighborhood' => $request["bairro"],
+            'street' => $request["rua"],
+            'number' => $request["numero"],
+            'complement' => $request["complemento"],
+            'postalCode' => $request["cep"]
+            ]);
+        
+            DB::table('telephones')->updateOrInsert(
+            ['user_id' => $usuario->id],
+            
+            [
+            'tel1' => $request["celular"],
+            'tel2' => $request["telefone"]
+            ]);
+
+        DB::commit();
+
+        $request->session()->flash('mensagem',
+        "Usuário atualizado com sucesso.");
+
+        return redirect()->back();
     }
 
     /**

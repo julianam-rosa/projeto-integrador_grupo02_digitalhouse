@@ -6,10 +6,6 @@
 
 <main>
 
-
- 
-
-
     <!-- foto de capa -->
     <div id="capa-perfil"></div>
 
@@ -23,8 +19,8 @@
 
             <!-- descrição -->
 
-            <div id="descricaou" class="col-7 rounded">
-
+            <div id="editar" class="col-4">
+                <a href="editUser/{{$usuario->id}}" class="btn btn-primary">Editar Informações</a>
             </div>
 
     

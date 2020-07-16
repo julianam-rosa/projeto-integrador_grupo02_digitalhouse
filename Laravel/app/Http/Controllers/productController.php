@@ -219,12 +219,12 @@ class productController extends Controller
 
     public function indexPerfil()
     {
-        $user=User::find(Auth::user()->id);
-        $produtos = $user->produtos()->get(); 
+        $usuario=User::find(Auth::user()->id);
+        $produtos = $usuario->produtos()->get(); 
         $total = count($produtos);
         $categorias = Category::all();
 
-        return view('perfilArtista', compact('produtos','total', 'categorias'));
+        return view('perfilArtista', compact('produtos', 'total', 'categorias', 'usuario'));
       
     }
 
