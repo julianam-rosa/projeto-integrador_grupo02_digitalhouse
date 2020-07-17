@@ -8,9 +8,9 @@
     <div class="col-12">
         <div class="slider-principal">
             <a href="/perfil"><img class="img-banner" src="./img/carrossel1 (1).png" /></a>
-            <a href="/perfil"><img class="img-banner" src="./img/carrossel1 (1).png" /></a>
-            <a href="/perfil"><img class="img-banner" src="./img/carrossel1 (1).png" /></a>
-            <a href="/perfil"><img class="img-banner" src="./img/carrossel1 (1).png" /></a>
+            <a href="/perfil"><img class="img-banner" src="./img/banner-01.png" /></a>
+            <a href="/perfil"><img class="img-banner" src="./img/banner-02.png" /></a>
+            <a href="/perfil"><img class="img-banner" src="./img/banner-04.png" /></a>
         </div>
     </div>
 
@@ -28,30 +28,30 @@
                 <img src="./img/obra-home1.png" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
-                <span><strong>Obra:</strong></span><span>Por do sol</span><br>
-                <span><strong>Autor:</strong></span><span>Roberto</span>
+                <span><strong>Obra: </strong></span><span>Gatos Dançarinos</span><br>
+                <span><strong>Autor: </strong></span><span>Roberto Kato</span>
 
             </div>
         </div>
 
         <div class="card col-4" style="width: 18rem;">
             <a href="/perfil">
-                <img src="./img/obra-home1.png" class="card-img-top" alt="...">
+                <img src="./img/obras-home.png" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
-                <span><strong>Obra:</strong></span><span>Por do sol</span><br>
-                <span><strong>Autor:</strong></span><span>Roberto</span>
+                <span><strong>Obra: </strong></span><span>Vale Verde</span><br>
+                <span><strong>Autor: </strong></span><span>Cecilia Dali</span>
 
             </div>
         </div>
 
         <div class="card col-4" style="width: 18rem;">
             <a href="/perfil">
-                <img src="./img/obra-home1.png" class="card-img-top" alt="...">
+                <img src="./img/obra-home2.png" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
-                <span><strong>Obra: </strong></span><span>Por do sol</span><br>
-                <span><strong>Autor: </strong></span><span>Roberto</span>
+                <span><strong>Obra: </strong></span><span>Nevado</span><br>
+                <span><strong>Autor: </strong></span><span>Carlos Reis</span>
 
             </div>
         </div>
