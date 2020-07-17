@@ -72,20 +72,20 @@
                     </div>
                 </div>
                 @if( auth()->check() )
-                <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="{{ route('carrinho.index')}}"><i class="fas fa-user"></i>
+                <li class="list-inline-item">
+                    <a class="nav-link font-weight-bold text-white" href="#"><i class="fas fa-user"></i>
                         {{ auth()->user()->name }}</a>
-
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Sair</a>
+                <li class="list-inline-item">
+                    <a class="nav-link font-weight-bold text-white" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i>Sair</a>
                 </li>
                 @else
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Entrar</a>
+                <li class="list-inline-item">
+                    <a class="nav-link text-white" href="/login">Entrar</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cadastro">Cadastro</a>
+                <li class="list-inline-item">
+                    <a class="nav-link text-white" href="/cadastro">Registrar</a>
                 </li>
                 @endif
             </nav>
@@ -120,13 +120,13 @@
                     <h3>Redes Sociais</h3>
                     <div class="flex mg_top">
                         <div class="face">
-                            <a href="https://www.facebook.com/"> <img id="facebook" src="../img/facebook.png"></a>
+                            <a href="https://www.facebook.com/Veduta-Art-101740118292867/"> <img id="facebook" src="../img/facebook.png"></a>
                         </div>
                         <div class="twitter">
-                            <a href="https://twitter.com/login?lang=pt"><img id="twitter" src="../img/twitter.png"></a>
+                            <a href="https://twitter.com/ArtVeduta"><img id="twitter" src="../img/twitter.png"></a>
                         </div>
                         <div class="insta">
-                            <a href="https://www.instagram.com/?hl=pt-br"><img id="insta"
+                            <a href="https://www.instagram.com/veduta.art/"><img id="insta"
                                     src="../img/instagram.png"></a>
                         </div>
                     </div>

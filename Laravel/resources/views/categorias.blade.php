@@ -29,12 +29,17 @@
                     </div>
                 </div>
                 @endforeach
+                
             </div>
-        </main>
+            <p>
+            {{$produtos->links()}}
+            </p>
 
+        </main>
+        
 
     </div>
-
+    
 
 
 

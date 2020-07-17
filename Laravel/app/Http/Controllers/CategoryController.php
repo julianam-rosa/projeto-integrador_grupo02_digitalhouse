@@ -25,7 +25,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $categorias = Category::where('id', $id)->first();
-        $produtos = $categorias->products()->get();
+        $produtos = $categorias->products()->paginate(6);
         return view('categorias',compact ('categorias','produtos'));
         
         
