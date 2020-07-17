@@ -18,7 +18,7 @@
             
                @foreach ($produtos as $produto)
                 <div class="card col-4" style="width: 18rem;">
-                    <a href="{{url('categorias', $categorias->id)}}">
+                    <a href="/detalheProduto/{{$produto->id}}">
                     <img src="{{ asset('uploads/todosProdutos/' . $produto->image1) }}">
                     </a>
                     <div class="card-body">
@@ -31,9 +31,11 @@
                 @endforeach
                 
             </div>
-            <p>
+            
+            <br>
+            <div class="row d-flex justify-content-center">
             {{$produtos->links()}}
-            </p>
+            </div>
 
         </main>
         

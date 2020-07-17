@@ -220,7 +220,7 @@ class productController extends Controller
     public function indexPerfil()
     {
         $usuario=User::find(Auth::user()->id);
-        $produtos = $usuario->produtos()->get(); 
+        $produtos = $usuario->produtos()->paginate(10); 
         $total = count($produtos);
         $categorias = Category::all();
 

@@ -24,7 +24,7 @@
                     </a>
 
                     @auth
-                    <a class="navbar-brand text-white" href="/perfil"><i class="fas fa-user"></i> Perfil</a>
+                    <a class="navbar-brand text-white" href="/perfil"><i class="fas fa-user"></i> {{ auth()->user()->name }}</a>
                     @endauth
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -67,15 +67,18 @@
                                 </div>
                             </li>
 
+                            @auth
+                            <li>
+                                <a class="nav-link navbar-brand text-white" href="/carrinho">
+                                    <i class="fas fa-shopping-bag"></i></a>
+                            </li>
+                            @endauth
+
                         </ul>
 
                     </div>
                 </div>
                 @if( auth()->check() )
-                <li class="list-inline-item">
-                    <a class="nav-link font-weight-bold text-white" href="#"><i class="fas fa-user"></i>
-                        {{ auth()->user()->name }}</a>
-                </li>
                 <li class="list-inline-item">
                     <a class="nav-link font-weight-bold text-white" href="/logout">
                         <i class="fas fa-sign-out-alt"></i>Sair</a>
@@ -134,7 +137,7 @@
                 </div>
                 <div class="ajuda">
                     <h3>Ajuda</h3>
-                    <h3><a href="">Trocas e Devoluções</a></h3>
+                    <h3>Trocas e Devoluções</h3>
 
                 </div>
             </div>

@@ -4,12 +4,16 @@
   }
 </script>
 
-
-
 @extends('layout')
 
 @section('conteudo')
 <br>
+
+@if(!empty($mensagem))
+<div class="alert alert-success mt-2">
+    {{ $mensagem }}
+</div>
+@endif
 
 <div class="container">
   <div class="row">
@@ -17,7 +21,7 @@
   
 @forelse($pedidos as $pedido)
 <br>
-<h5 class="col 2 s12 m6">Criado em: {{ $pedido->created_at->format('d/m/y H:i') }} </h5>
+
 <br>
 
 <table class="table">
@@ -27,6 +31,7 @@
       <th scope="col">Imagem</th>
       <th scope="col">Produto</th>
       <th scope="col">Valor</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -39,18 +44,19 @@
 
   @foreach($pedido->pedido_produtos as $pedido_produto)
 
-  
     <tr>
       <th scope="row">{{ $pedido->id }}</th>
       <td><img width='100px' height="100px" src="{{ asset('uploads/todosProdutos/' . $pedido_produto->produto->image1) }}" alt=""></td>
       <td>{{ $pedido_produto->produto->name }}</td>
       <td>{{ number_format($pedido_produto->produto->price, 2, ',' , '.') }}</td>
-      <!-- <td> <a href="" onclick="carrinhoRemoverProduto( {{ $pedido->id }} , {{ $pedido_produto->idProduto }}, 0)" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Retirar produto do carrinho?" > Retirar Produto</a></td>  -->
+      <td> <button onclick="return carrinhoRemoverProduto( {{ $pedido->id }} , {{ $pedido_produto->products_id }}, 0)" 
+      class="tooltipped btn btn-danger" data-position="right"> Retirar Produto</button></td>
+
       @php
-    $total_produto = $pedido_produto->valores;
-  
-    $total_pedido += $total_produto;
-  @endphp
+        $total_produto = $pedido_produto->valores;
+      
+        $total_pedido += $total_produto;
+     @endphp
   
        
     </tr>
@@ -68,14 +74,13 @@
          </span> 
  </div> 
 
+ <button id="btComprar" onclick="alert('Compra realizada com sucesso!')" class="btn btn-success">COMPRAR</button>
 
 @empty
 
 <h5>Não há produtos</h5>
 
 @endforelse
-
-<button id="btComprar" onclick="alert('Compra realizada com sucesso!')" class="btn btn-success">COMPRAR</button>
 
   </div>
 </div>
@@ -94,11 +99,17 @@
   <input type="hidden" name="id">
 </form>
 
- <!--
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{ asset('js/carrinho.js') }}"></script>
-<script type="text/javascript" src="../js/jquery-migrate.js/"></script>
- -->
+<script>
+  function carrinhoRemoverProduto(idPedido, idProduto, item){
+    $('#form-remover-produto input[name="pedido_id"]').val(idPedido);
+    $('#form-remover-produto input[name="products_id"]').val(idProduto);
+    $('#form-remover-produto input[name="item"]').val(item);
+    $('#form-remover-produto').submit();
+}
 
-
+function carrinhoAdicionarProduto(idProduto){
+    $('#form-adicionar-produto input[name="id"]').val(idProduto);
+    $('#form-adicionar-produto').submit();
+}
+</script>
 @endsection

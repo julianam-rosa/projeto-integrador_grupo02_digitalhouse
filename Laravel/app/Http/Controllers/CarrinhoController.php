@@ -18,15 +18,15 @@ class CarrinhoController extends Controller
 
     }
 
-    public function index(){
+    public function index(Request $request){
         $pedidos = Pedido::where([
             'status' => 'RE',
             'user_id' => Auth::id()
         ])->get();
 
-      
+        $mensagem = $request->session()->get('mensagem');
 
-        return view('carrinho', compact('pedidos'));
+        return view('carrinho', compact('pedidos', 'mensagem'));
     }
 
     public function adicionar(){
@@ -38,7 +38,7 @@ class CarrinhoController extends Controller
 
         $produto = products::find($idProduto);
         if( empty($produto->id)) {
-            $req->session()->flash('mensagem-falha', 'Produto não encontrado em nossa loja!');
+            $req->session()->flash('mensagem', 'Produto não encontrado em nossa loja!');
             return view('home');
         }
 
@@ -65,7 +65,7 @@ class CarrinhoController extends Controller
             'status' => 'RE'
         ]);
 
-        $req->session()->flash('mensagem-sucesso','Produto adicionado ao carrinho');
+        $req->session()->flash('mensagem','Produto adicionado ao carrinho');
 
         return redirect()->route('carrinho.index');
 
@@ -76,7 +76,6 @@ class CarrinhoController extends Controller
     public function remover(){
 
         $this->middleware('VerifyCsrfToken');
-
 
         $req = Request();
         $idPedido            = $req->input('pedido_id');
@@ -91,8 +90,8 @@ class CarrinhoController extends Controller
         ]);
 
         if( empty($idPedido)){
-            $req->session()->flash('mensagem-falha', 'Pedido não encotrado');
-            return redirect()->route('home');
+            $req->session()->flash('mensagem', 'Pedido não encotrado');
+            return redirect()->route('carrinho.index');
         }
 
         $where_produto =[
@@ -100,10 +99,13 @@ class CarrinhoController extends Controller
             'products_id' => $idProduto,
         ];
 
-        $produto = PedidoProduto::where($where_produto);
+        $produtos = PedidoProduto::where($where_produto)->get();
+        
+        foreach ($produtos as $produto) {
+            
         if( empty($produto->id)) {
-            $req->session()->flash('mensagem-falha', 'Produto não encotrado no carrinho');
-            return redirect()->route('home');
+            $req->session()->flash('mensagem', 'Produto não encotrado no carrinho');
+            return redirect()->route('carrinho.index');
         }
 
         if($remove_apenas_item){
@@ -117,11 +119,12 @@ class CarrinhoController extends Controller
 
         if( !$check_pedido){
             Pedido::where([
-                'pedido_id' => $produto->pedido_id
+                'id' => $produto->pedido_id
             ])->delete();
         }
+    }
 
-        $req->session()->flash('mensagem-sucesso', 'Produto removido');
+        $req->session()->flash('mensagem', 'Produto removido');
 
         return redirect()->route('carrinho.index');
     }
